@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Faith Tabernacle - Get in touch, request prayer, or plan your visit.">
+    <title>Contact Us | Faith Tabernacle</title>
+    
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <style>
+        .page-hero {
+            height: 400px;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%), url('../assets/images/contact-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--primary-white);
+        }
+        
+        .page-hero h1 {
+            color: var(--primary-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+            color: var(--gray-200);
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-gold);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-3xl);
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: var(--spacing-xl);
+            background: var(--primary-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-md);
+            background: var(--accent-light-blue);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-card p {
+            color: var(--gray-600);
+        }
+        
+        .contact-card a {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+        }
+        
+        .contact-form-wrapper {
+            background: var(--primary-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .map-wrapper {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            min-height: 500px;
+        }
+        
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-logo">
+            <i class="ri-church-line" style="font-size: 80px; color: var(--primary-gold);"></i>
+        </div>
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">Faith Tabernacle</div>
+    </div>
+
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <a href="tel:+2348012345678">
+                        <i class="ri-phone-line"></i>
+                        <span>+234 801 234 5678</span>
+                    </a>
+                    <a href="mailto:info@faithtabernacle.org">
+                        <i class="ri-mail-line"></i>
+                        <span>info@faithtabernacle.org</span>
+                    </a>
+                </div>
+                <div class="header-social">
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                    <a href="#" target="_blank" aria-label="Twitter"><i class="ri-twitter-fill"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <nav class="navbar">
+                    <a href="../index.html" class="navbar-brand">
+                        <i class="ri-church-line" style="font-size: 2rem; color: var(--primary-gold);"></i>
+                        <span>Faith Tabernacle</span>
+                    </a>
+
+                    <ul class="navbar-menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mandate.html">The Mandate</a></li>
+                        <li><a href="media.html">Media Center</a></li>
+                        <li><a href="wofbi.html">WOFBI</a></li>
+                        <li><a href="family.html">Christian Family</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        
+                        <div class="navbar-cta">
+                            <a href="#live" class="btn btn-secondary btn-sm">
+                                <i class="ri-live-line"></i> Watch Live
+                            </a>
+                            <a href="give.html" class="btn btn-gold btn-sm">
+                                <i class="ri-hand-heart-line"></i> Give Online
+                            </a>
+                        </div>
+                    </ul>
+
+                    <button class="navbar-toggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <i class="ri-arrow-right-s-line"></i>
+                <span>Contact Us</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>We would love to hear from you</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">
+                        <i class="ri-map-pin-line"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p>123 Faith Avenue<br>Victoria Island, Lagos<br>Nigeria</p>
+                    <a href="#map">Get Directions</a>
+                </div>
+                
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">
+                        <i class="ri-phone-line"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+2348012345678">+234 801 234 5678</a></p>
+                    <p><a href="tel:+2349087654321">+234 908 765 4321</a></p>
+                </div>
+                
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">
+                        <i class="ri-mail-line"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p><a href="mailto:info@faithtabernacle.org">info@faithtabernacle.org</a></p>
+                    <p><a href="mailto:prayer@faithtabernacle.org">prayer@faithtabernacle.org</a></p>
+                </div>
+                
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">
+                        <i class="ri-time-line"></i>
+                    </div>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday<br>9:00 AM - 5:00 PM</p>
+                    <p>Saturday: 8:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-form-wrapper scroll-reveal">
+                    <h3>Send Us a Message</h3>
+                    <p class="mb-4">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" id="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" id="lastName" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="prayer">Prayer Request</option>
+                                <option value="visit">Plan a Visit</option>
+                                <option value="ministry">Join a Ministry</option>
+                                <option value="testimony">Share Testimony</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" class="form-control" rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="ri-send-plane-line"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="scroll-reveal">
+                    <h3 class="mb-4">Find Us</h3>
+                    <div class="map-wrapper" id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7239831819396!2d3.4207738!3d6.4280556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjUnNDEuMCJOIDPCsDI1JzE0LjgiRQ!5e0!3m2!1sen!2sng!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="prayer">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prayer Request</h2>
+                <p>Share your prayer needs with us</p>
+            </div>
+            
+            <div class="contact-form-wrapper scroll-reveal" style="max-width: 700px; margin: 0 auto;">
+                <form id="prayer-form">
+                    <div class="form-group">
+                        <label for="prayerName" class="form-label">Your Name *</label>
+                        <input type="text" id="prayerName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prayerEmail" class="form-label">Email *</label>
+                        <input type="email" id="prayerEmail" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prayerPhone" class="form-label">Phone (Optional)</label>
+                        <input type="tel" id="prayerPhone" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prayerRequest" class="form-label">Prayer Request *</label>
+                        <textarea id="prayerRequest" class="form-control" rows="6" required placeholder="Share your prayer request..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="prayerPrivacy">
+                            I agree to allow Faith Tabernacle to pray for this request
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="ri-hand-heart-line"></i> Submit Prayer Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="ri-church-line" style="font-size: 2rem; color: var(--primary-gold);"></i>
+                        <span>Faith Tabernacle</span>
+                    </div>
+                    <p class="footer-description">
+                        A thriving faith assembly under Living Faith Church Worldwide, committed to teaching God's Word, winning souls, and transforming lives.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="ri-twitter-fill"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                        <a href="#" target="_blank" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mandate.html">The Mandate</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="media.html">Media Center</a></li>
+                        <li><a href="wofbi.html">WOFBI</a></li>
+                        <li><a href="give.html">Give Online</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Service Times</h3>
+                    <div class="footer-schedule">
+                        <div class="footer-schedule-item">
+                            <span class="footer-schedule-day">Sunday</span>
+                            <span class="footer-schedule-time">7:00 AM & 9:30 AM</span>
+                        </div>
+                        <div class="footer-schedule-item">
+                            <span class="footer-schedule-day">Wednesday</span>
+                            <span class="footer-schedule-time">6:00 PM</span>
+                        </div>
+                        <div class="footer-schedule-item">
+                            <span class="footer-schedule-day">Saturday</span>
+                            <span class="footer-schedule-time">8:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact-item">
+                        <i class="ri-map-pin-line"></i>
+                        <span>123 Faith Avenue, Victoria Island, Lagos, Nigeria</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="ri-phone-line"></i>
+                        <span>+234 801 234 5678</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="ri-mail-line"></i>
+                        <span>info@faithtabernacle.org</span>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <p>Subscribe to our newsletter</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="footer-copyright">
+                        &copy; 2023 Faith Tabernacle. All rights reserved. Part of Living Faith Church Worldwide.
+                    </p>
+                    <ul class="footer-legal">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <a href="https://wa.me/2348012345678" class="whatsapp-fab" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="ri-whatsapp-line"></i>
+    </a>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="../config/firebase-config.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script>
+        // Contact Form Handler
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const button = e.target.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.innerHTML = '<i class="ri-loader-4-line"></i> Sending...';
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+            
+            try {
+                if (typeof db !== 'undefined') {
+                    await db.collection('contacts').add(formData);
+                    showToast('Message sent successfully! We will get back to you soon.', 'success');
+                    e.target.reset();
+                } else {
+                    showToast('Unable to send message. Please try again later.', 'error');
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+                showToast('Failed to send message. Please try again.', 'error');
+            } finally {
+                button.disabled = false;
+                button.innerHTML = '<i class="ri-send-plane-line"></i> Send Message';
+            }
+        });
+        
+        // Prayer Form Handler
+        document.getElementById('prayer-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const button = e.target.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.innerHTML = '<i class="ri-loader-4-line"></i> Submitting...';
+            
+            const formData = {
+                name: document.getElementById('prayerName').value,
+                email: document.getElementById('prayerEmail').value,
+                phone: document.getElementById('prayerPhone').value,
+                request: document.getElementById('prayerRequest').value,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                status: 'pending'
+            };
+            
+            try {
+                if (typeof db !== 'undefined') {
+                    await db.collection('prayerRequests').add(formData);
+                    showToast('Prayer request submitted. We will pray for you!', 'success');
+                    e.target.reset();
+                } else {
+                    showToast('Unable to submit prayer request. Please try again later.', 'error');
+                }
+            } catch (error) {
+                console.error('Error submitting prayer request:', error);
+                showToast('Failed to submit prayer request. Please try again.', 'error');
+            } finally {
+                button.disabled = false;
+                button.innerHTML = '<i class="ri-hand-heart-line"></i> Submit Prayer Request';
+            }
+        });
+    </script>
+</body>
+</html>
