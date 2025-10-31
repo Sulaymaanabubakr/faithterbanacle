@@ -1,0 +1,34 @@
+# Environment variables and sensitive data
+.env
+.env.local
+.env.production
+config/firebase-config.js
+config/cloudinary-config.js
+
+# Node modules (if added later)
+node_modules/
+package-lock.json
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build artifacts
+dist/
+build/
