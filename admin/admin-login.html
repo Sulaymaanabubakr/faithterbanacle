@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Faith Tabernacle</title>
+    
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            padding: var(--spacing-md);
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .login-header {
+            background: var(--primary-blue-dark);
+            padding: var(--spacing-xl);
+            text-align: center;
+            color: var(--primary-white);
+        }
+        
+        .login-logo {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .login-header h1 {
+            color: var(--primary-white);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-header p {
+            color: var(--gray-300);
+            margin: 0;
+        }
+        
+        .login-body {
+            padding: var(--spacing-xl);
+        }
+        
+        .login-tabs {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .login-tab {
+            flex: 1;
+            padding: var(--spacing-md);
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--gray-500);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            margin-bottom: -2px;
+        }
+        
+        .login-tab.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+        
+        .login-form {
+            display: none;
+        }
+        
+        .login-form.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            font-size: 1.25rem;
+        }
+        
+        .form-control {
+            padding-left: 3rem;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+        
+        .password-toggle:hover {
+            color: var(--gray-600);
+        }
+        
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .forgot-password {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-xl) 0;
+            color: var(--gray-500);
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gray-200);
+        }
+        
+        .btn-google {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: var(--primary-white);
+            color: var(--gray-700);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            transition: all var(--transition-base);
+        }
+        
+        .btn-google:hover {
+            background: var(--gray-50);
+            border-color: var(--primary-blue);
+        }
+        
+        .btn-google img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .alert {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+            display: none;
+        }
+        
+        .alert.error {
+            background: var(--accent-light-red);
+            color: var(--primary-red);
+            border-left: 4px solid var(--primary-red);
+            display: block;
+        }
+        
+        .alert.success {
+            background: #d1fae5;
+            color: #065f46;
+            border-left: 4px solid #10b981;
+            display: block;
+        }
+        
+        @media (max-width: 480px) {
+            .login-body {
+                padding: var(--spacing-md);
+            }
+            
+            .form-footer {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <i class="ri-church-line login-logo"></i>
+            <h1>Faith Tabernacle</h1>
+            <p>Admin Portal</p>
+        </div>
+        
+        <div class="login-body">
+            <div class="login-tabs">
+                <button class="login-tab active" data-tab="signin">Sign In</button>
+                <button class="login-tab" data-tab="signup">Sign Up</button>
+            </div>
+            
+            <div id="alert-container"></div>
+            
+            <!-- Sign In Form -->
+            <form id="signin-form" class="login-form active">
+                <div class="form-group">
+                    <i class="ri-mail-line form-icon"></i>
+                    <input type="email" id="signin-email" class="form-control" placeholder="Email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <i class="ri-lock-line form-icon"></i>
+                    <input type="password" id="signin-password" class="form-control" placeholder="Password" required>
+                    <button type="button" class="password-toggle" data-target="signin-password">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                </div>
+                
+                <div class="form-footer">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-lg);">
+                    <i class="ri-login-box-line"></i> Sign In
+                </button>
+                
+                <div class="divider">OR</div>
+                
+                <button type="button" id="google-signin" class="btn-google">
+                    <svg width="20" height="20" viewBox="0 0 48 48">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    </svg>
+                    Continue with Google
+                </button>
+            </form>
+            
+            <!-- Sign Up Form -->
+            <form id="signup-form" class="login-form">
+                <div class="form-group">
+                    <i class="ri-user-line form-icon"></i>
+                    <input type="text" id="signup-name" class="form-control" placeholder="Full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <i class="ri-mail-line form-icon"></i>
+                    <input type="email" id="signup-email" class="form-control" placeholder="Email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <i class="ri-lock-line form-icon"></i>
+                    <input type="password" id="signup-password" class="form-control" placeholder="Password (min. 6 characters)" required minlength="6">
+                    <button type="button" class="password-toggle" data-target="signup-password">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                </div>
+                
+                <div class="form-group">
+                    <i class="ri-lock-line form-icon"></i>
+                    <input type="password" id="signup-confirm" class="form-control" placeholder="Confirm password" required>
+                    <button type="button" class="password-toggle" data-target="signup-confirm">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-lg);">
+                    <i class="ri-user-add-line"></i> Create Account
+                </button>
+                
+                <div class="divider">OR</div>
+                
+                <button type="button" id="google-signup" class="btn-google">
+                    <svg width="20" height="20" viewBox="0 0 48 48">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    </svg>
+                    Sign up with Google
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="../config/firebase-config.js"></script>
+    
+    <script>
+        // Tab Switching
+        document.querySelectorAll('.login-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.dataset.tab;
+                
+                // Update active tab
+                document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update active form
+                document.querySelectorAll('.login-form').forEach(form => form.classList.remove('active'));
+                document.getElementById(`${targetTab}-form`).classList.add('active');
+                
+                // Clear alert
+                document.getElementById('alert-container').innerHTML = '';
+            });
+        });
+        
+        // Password Toggle
+        document.querySelectorAll('.password-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                const input = document.getElementById(targetId);
+                const icon = button.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.className = 'ri-eye-off-line';
+                } else {
+                    input.type = 'password';
+                    icon.className = 'ri-eye-line';
+                }
+            });
+        });
+        
+        // Show Alert
+        function showAlert(message, type = 'error') {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = `
+                <div class="alert ${type}">
+                    <i class="ri-${type === 'error' ? 'error-warning' : 'checkbox-circle'}-line"></i> ${message}
+                </div>
+            `;
+        }
+        
+        // Sign In Handler
+        document.getElementById('signin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('signin-email').value;
+            const password = document.getElementById('signin-password').value;
+            const button = e.target.querySelector('button[type="submit"]');
+            
+            button.disabled = true;
+            button.innerHTML = '<i class="ri-loader-4-line"></i> Signing in...';
+            
+            try {
+                if (typeof auth !== 'undefined') {
+                    await auth.signInWithEmailAndPassword(email, password);
+                    showAlert('Sign in successful! Redirecting...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'admin-dashboard.html';
+                    }, 1000);
+                } else {
+                    showAlert('Firebase authentication is not configured.');
+                }
+            } catch (error) {
+                console.error('Sign in error:', error);
+                showAlert(error.message || 'Failed to sign in. Please check your credentials.');
+            } finally {
+                button.disabled = false;
+                button.innerHTML = '<i class="ri-login-box-line"></i> Sign In';
+            }
+        });
+        
+        // Sign Up Handler
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirm = document.getElementById('signup-confirm').value;
+            const button = e.target.querySelector('button[type="submit"]');
+            
+            if (password !== confirm) {
+                showAlert('Passwords do not match!');
+                return;
+            }
+            
+            button.disabled = true;
+            button.innerHTML = '<i class="ri-loader-4-line"></i> Creating account...';
+            
+            try {
+                if (typeof auth !== 'undefined') {
+                    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                    await userCredential.user.updateProfile({ displayName: name });
+                    showAlert('Account created successfully! Redirecting...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'admin-dashboard.html';
+                    }, 1000);
+                } else {
+                    showAlert('Firebase authentication is not configured.');
+                }
+            } catch (error) {
+                console.error('Sign up error:', error);
+                showAlert(error.message || 'Failed to create account. Please try again.');
+            } finally {
+                button.disabled = false;
+                button.innerHTML = '<i class="ri-user-add-line"></i> Create Account';
+            }
+        });
+        
+        // Google Sign In
+        async function googleAuth() {
+            try {
+                if (typeof auth !== 'undefined') {
+                    const provider = new firebase.auth.GoogleAuthProvider();
+                    await auth.signInWithPopup(provider);
+                    showAlert('Sign in successful! Redirecting...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'admin-dashboard.html';
+                    }, 1000);
+                } else {
+                    showAlert('Firebase authentication is not configured.');
+                }
+            } catch (error) {
+                console.error('Google auth error:', error);
+                showAlert(error.message || 'Failed to sign in with Google.');
+            }
+        }
+        
+        document.getElementById('google-signin').addEventListener('click', googleAuth);
+        document.getElementById('google-signup').addEventListener('click', googleAuth);
+        
+        // Check if already logged in
+        if (typeof auth !== 'undefined') {
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    window.location.href = 'admin-dashboard.html';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

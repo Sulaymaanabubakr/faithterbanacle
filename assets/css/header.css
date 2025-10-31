@@ -1,0 +1,232 @@
+/* Header and Navigation Styles */
+
+.header {
+    background: var(--primary-white);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: var(--z-sticky);
+    transition: all var(--transition-base);
+}
+
+.header.scrolled {
+    box-shadow: var(--shadow-lg);
+}
+
+.header-top {
+    background: var(--primary-blue);
+    color: var(--primary-white);
+    padding: var(--spacing-xs) 0;
+    font-size: 0.875rem;
+}
+
+.header-top .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.header-contact {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.header-contact a {
+    color: var(--primary-white);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color var(--transition-fast);
+}
+
+.header-contact a:hover {
+    color: var(--primary-gold);
+}
+
+.header-social {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.header-social a {
+    color: var(--primary-white);
+    font-size: 1.125rem;
+    transition: all var(--transition-fast);
+}
+
+.header-social a:hover {
+    color: var(--primary-gold);
+    transform: scale(1.2);
+}
+
+.header-main {
+    padding: var(--spacing-md) 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.navbar-menu li {
+    position: relative;
+}
+
+.navbar-menu a {
+    color: var(--gray-700);
+    font-weight: 500;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.navbar-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    transition: width var(--transition-base);
+}
+
+.navbar-menu a:hover {
+    color: var(--primary-blue);
+}
+
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
+    width: 100%;
+}
+
+.navbar-cta {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+}
+
+.navbar-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.navbar-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation */
+@media (max-width: 992px) {
+    .header-top {
+        font-size: 0.8rem;
+    }
+    
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 300px;
+        background: var(--primary-white);
+        flex-direction: column;
+        padding: var(--spacing-3xl) var(--spacing-lg);
+        box-shadow: var(--shadow-xl);
+        transition: right var(--transition-base);
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        overflow-y: auto;
+    }
+    
+    .navbar-menu.active {
+        right: 0;
+    }
+    
+    .navbar-cta {
+        flex-direction: column;
+        width: 100%;
+        margin-top: var(--spacing-md);
+    }
+    
+    .navbar-cta .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        display: none;
+    }
+    
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    .navbar-brand img {
+        height: 40px;
+    }
+    
+    .navbar-menu {
+        width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .navbar-menu {
+        width: 100%;
+    }
+}
