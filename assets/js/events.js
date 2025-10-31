@@ -131,12 +131,19 @@ function displayEvents(events) {
 // Display Sample Events (fallback)
 function displaySampleEvents() {
     const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+    
+    // Calculate upcoming dates dynamically
+    const christmasYear = currentMonth >= 11 && now.getDate() > 25 ? currentYear + 1 : currentYear;
+    const newYearYear = currentMonth >= 11 ? currentYear + 1 : currentYear;
+    
     const sampleEvents = [
         {
             id: 'sample-1',
             title: 'Christmas Celebration',
             description: 'Join us for a special Christmas service celebrating the birth of our Lord and Savior Jesus Christ. Experience the joy of the season with worship, carols, and a powerful message.',
-            date: new Date(now.getFullYear(), 11, 25),
+            date: new Date(christmasYear, 11, 25),
             time: '9:00 AM - 1:00 PM',
             location: 'Faith Tabernacle Main Auditorium',
             category: 'service',
@@ -147,7 +154,7 @@ function displaySampleEvents() {
             id: 'sample-2',
             title: 'New Year Prayer Summit',
             description: 'Begin the new year with intensive prayer and fasting. Seek God\'s face for direction, breakthrough, and blessings for the year ahead.',
-            date: new Date(now.getFullYear() + 1, 0, 7),
+            date: new Date(newYearYear, 0, 7),
             time: '6:00 AM - 12:00 PM',
             location: 'Faith Tabernacle',
             category: 'conference',
@@ -156,9 +163,9 @@ function displaySampleEvents() {
         },
         {
             id: 'sample-3',
-            title: 'Youth Conference 2024',
+            title: 'Youth Conference ' + (newYearYear),
             description: 'An empowering conference for young people to discover their purpose, develop their potential, and make an impact in their generation.',
-            date: new Date(now.getFullYear() + 1, 1, 14),
+            date: new Date(newYearYear, 1, 14),
             time: '10:00 AM - 5:00 PM',
             location: 'Conference Center',
             category: 'conference',
@@ -169,7 +176,7 @@ function displaySampleEvents() {
             id: 'sample-4',
             title: 'Community Outreach',
             description: 'Join us as we reach out to our community with food, clothing, and the love of Christ. Be a blessing to those in need.',
-            date: new Date(now.getFullYear() + 1, 2, 10),
+            date: new Date(currentMonth < 3 ? currentYear : currentYear + 1, 2, 10),
             time: '8:00 AM - 2:00 PM',
             location: 'Various Locations',
             category: 'outreach',
@@ -180,7 +187,7 @@ function displaySampleEvents() {
             id: 'sample-5',
             title: 'Easter Service',
             description: 'Celebrate the resurrection of Jesus Christ with us. A powerful service of worship, praise, and thanksgiving.',
-            date: new Date(now.getFullYear() + 1, 3, 20),
+            date: new Date(currentMonth < 4 ? currentYear : currentYear + 1, 3, 20),
             time: '7:00 AM & 9:30 AM',
             location: 'Faith Tabernacle',
             category: 'service',
@@ -191,7 +198,7 @@ function displaySampleEvents() {
             id: 'sample-6',
             title: 'Marriage Retreat',
             description: 'A special weekend retreat for couples to strengthen their marriages, rekindle romance, and build lasting relationships.',
-            date: new Date(now.getFullYear() + 1, 4, 15),
+            date: new Date(currentMonth < 5 ? currentYear : currentYear + 1, 4, 15),
             time: 'Fri 6:00 PM - Sun 4:00 PM',
             location: 'Retreat Center',
             category: 'conference',

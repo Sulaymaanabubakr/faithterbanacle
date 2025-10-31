@@ -4,9 +4,11 @@ let selectedGivingType = 'tithe';
 let selectedPaymentMethod = 'paystack';
 let selectedAmount = null;
 
-// NOTE: Replace these with your actual API keys
-const PAYSTACK_PUBLIC_KEY = 'pk_test_xxxxxxxxxxxxxxxxxxxxx'; // Replace with actual key
-const FLUTTERWAVE_PUBLIC_KEY = 'FLWPUBK_TEST-xxxxxxxxxxxxxxxxxxxxx'; // Replace with actual key
+// NOTE: In production, load these from a secure server-side endpoint or environment configuration
+// Never commit real API keys to version control
+// These are placeholders - replace with your actual keys from a secure configuration
+const PAYSTACK_PUBLIC_KEY = window.PAYSTACK_PUBLIC_KEY || 'pk_test_xxxxxxxxxxxxxxxxxxxxx'; // Replace with actual key
+const FLUTTERWAVE_PUBLIC_KEY = window.FLUTTERWAVE_PUBLIC_KEY || 'FLWPUBK_TEST-xxxxxxxxxxxxxxxxxxxxx'; // Replace with actual key
 
 // Giving Type Selection
 document.querySelectorAll('.giving-option').forEach(option => {
