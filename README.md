@@ -1,355 +1,245 @@
-# Faith Tabernacle Website
+# Faith Tabernacle Official Website
 
-A premium, world-class church website for Faith Tabernacle - a faith assembly under Living Faith Church Worldwide. Built with modern web technologies, featuring a complete content management system (CMS) with Firebase backend and Cloudinary media storage.
+A complete rebuild of the Faith Tabernacle official website (faithtabernacle.org.ng) - Living Faith Church Worldwide. This project replicates the visual layout, structure, and functionality of the reference website using clean HTML, CSS, and JavaScript.
 
-## 🌟 Features
+## 🌟 Overview
 
-### Public Website
-- **Responsive Design**: Fully mobile-first, tablet, and desktop responsive
-- **Modern UI/UX**: Clean, elegant design with smooth animations and transitions
-- **Hero Slider**: Dynamic homepage slider with multiple slides
-- **Service Times**: Clear display of all service schedules
-- **Events Management**: Upcoming events with date displays
-- **Media Center**: Photos and videos from church events
-- **Ministries**: Overview of all church ministries
-- **Contact Forms**: Contact, prayer request, and visit planning forms
-- **Newsletter Subscription**: Email subscription functionality
-- **Live Streaming**: Embedded YouTube/Vimeo sermon videos
-- **Word for Today**: Daily scripture and devotional
-- **SEO Optimized**: Meta tags, Open Graph data for social sharing
-- **Performance**: Lazy loading images, optimized assets
+Faith Tabernacle is a Bible-believing church committed to the proclamation of the gospel of Jesus Christ and the word of faith to the nations of the world. This website serves as the digital presence for the church, providing information about services, ministries, events, and online resources.
 
-### Pages
-1. **Home** - Hero slider, services, events, media, ministries
-2. **About Us** - Church history, mission, vision, values, leadership
-3. **The Mandate** - Church's mandate and calling
-4. **Media Center** - Sermons, photos, videos gallery
-5. **WOFBI** - Word of Faith Bible Institute information
-6. **Christian Family** - Family ministry resources
-7. **Downloads** - Downloadable resources and materials
-8. **Education** - Educational programs and initiatives
-9. **Events** - Upcoming and past events
-10. **Contact Us** - Contact forms, prayer requests, map
-11. **Give Online** - Online giving with Paystack/Flutterwave integration
+## 🎯 Project Goals
 
-### Admin Dashboard
-- **Secure Authentication**: Firebase Auth with email/password and Google Sign-in
-- **Events Management**: Create, edit, delete events
-- **Sermons Management**: Upload and manage sermon videos
-- **Media Gallery**: Image and video uploads via Cloudinary
-- **News/Announcements**: Publish church news and updates
-- **Ministries Management**: Manage ministry information
-- **Word for Today**: Update daily devotional content
-- **Real-time Updates**: Firestore real-time sync
-- **Toast Notifications**: User-friendly feedback system
-- **Responsive Interface**: Works on all devices
+- **Complete Structural Replication**: Rebuild the entire website structure from scratch
+- **Visual Consistency**: Match the design, layout, and user experience of the reference site
+- **Responsive Design**: Ensure full functionality across mobile, tablet, and desktop devices
+- **Clean Code**: Use semantic HTML5, modern CSS3, and vanilla JavaScript (no frameworks)
+- **SEO Optimized**: Implement proper meta tags, sitemap, and accessibility features
 
-### Technical Features
-- **Firebase Integration**: Authentication, Firestore database, real-time sync
-- **Cloudinary Integration**: Image and video hosting
-- **Reusable Components**: Header, footer, navigation, modals, toasts
-- **Scroll Animations**: Intersection Observer for reveal effects
-- **Sticky Header**: Fixed navigation on scroll
-- **Mobile Navigation**: Hamburger menu for mobile devices
-- **WhatsApp Integration**: Floating WhatsApp button
-- **Scroll to Top**: Smooth scroll-to-top functionality
-- **Preloader**: Elegant loading animation
-- **Form Validation**: Client-side form validation
-- **Error Handling**: Graceful error handling and user feedback
+## 🛠️ Technologies Used
 
-## 🎨 Design System
-
-### Colors
-- **Primary Blue**: `#1e3a8a` - Main brand color
-- **Primary Red**: `#dc2626` - Accent color
-- **Primary Gold**: `#f59e0b` - Highlight color
-- **Primary White**: `#ffffff` - Background
-- **Neutral Grays**: Various shades for text and backgrounds
-
-### Typography
-- **Headings**: Poppins (Google Fonts)
-- **Body Text**: Inter (Google Fonts)
-- **Font Sizes**: Responsive, using CSS clamp()
-
-### Icons
-- **Remix Icons**: Modern, clean icon set
-- Used throughout the website for UI elements
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Firebase account
-- Cloudinary account
-- Text editor (VS Code recommended)
-- Local web server (optional: Live Server extension for VS Code)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Sulaymaanabubakr/faithterbanacle.git
-   cd faithterbanacle
-   ```
-
-2. **Set up Firebase**
-   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   - Enable Authentication (Email/Password and Google)
-   - Create a Firestore database
-   - Copy `config/firebase-config.example.js` to `config/firebase-config.js`
-   - Add your Firebase configuration:
-     ```javascript
-     const firebaseConfig = {
-         apiKey: "YOUR_API_KEY",
-         authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-         projectId: "YOUR_PROJECT_ID",
-         storageBucket: "YOUR_PROJECT_ID.appspot.com",
-         messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-         appId: "YOUR_APP_ID"
-     };
-     ```
-
-3. **Set up Cloudinary**
-   - Create a Cloudinary account at [Cloudinary](https://cloudinary.com/)
-   - Create an unsigned upload preset in Settings > Upload
-   - Copy `config/cloudinary-config.example.js` to `config/cloudinary-config.js`
-   - Add your Cloudinary configuration:
-     ```javascript
-     const cloudinaryConfig = {
-         cloudName: "YOUR_CLOUD_NAME",
-         uploadPreset: "YOUR_UPLOAD_PRESET"
-     };
-     ```
-
-4. **Configure Firestore Security Rules**
-   ```javascript
-   rules_version = '2';
-   service cloud.firestore {
-     match /databases/{database}/documents {
-       // Public read, authenticated write
-       match /events/{document=**} {
-         allow read: if true;
-         allow write: if request.auth != null;
-       }
-       match /media/{document=**} {
-         allow read: if true;
-         allow write: if request.auth != null;
-       }
-       match /wordForToday/{document=**} {
-         allow read: if true;
-         allow write: if request.auth != null;
-       }
-       // Submissions - public write, authenticated read
-       match /contacts/{document=**} {
-         allow read: if request.auth != null;
-         allow create: if true;
-       }
-       match /prayerRequests/{document=**} {
-         allow read: if request.auth != null;
-         allow create: if true;
-       }
-       match /newsletter/{document=**} {
-         allow read: if request.auth != null;
-         allow create: if true;
-       }
-     }
-   }
-   ```
-
-5. **Launch the website**
-   - Open `index.html` in a web browser
-   - Or use a local server:
-     ```bash
-     # Using Python
-     python -m http.server 8000
-     
-     # Using Node.js
-     npx serve
-     
-     # Using VS Code Live Server extension
-     Right-click index.html > Open with Live Server
-     ```
-
-### Admin Access
-
-1. Navigate to `/admin/admin-login.html`
-2. Create an admin account or sign in with Google
-3. Access the admin dashboard to manage content
+- **HTML5**: Semantic markup for content structure
+- **CSS3**: Modern styling with Flexbox and Grid layouts
+- **JavaScript (ES6)**: Interactive features and dynamic functionality
+- **Google Fonts**: Poppins and Open Sans typography
+- **Remix Icons**: Icon library for UI elements
+- **No Frameworks**: Pure vanilla code for maximum performance
 
 ## 📁 Project Structure
 
 ```
 faithterbanacle/
-├── index.html              # Homepage
-├── README.md              # Project documentation
-├── .gitignore            # Git ignore rules
+├── index.html                 # Homepage
+├── about.html                 # About Us page
+├── mandate.html               # The Mandate page
+├── media.html                 # Media Center page
+├── wofbi.html                 # WOFBI page
+├── family.html                # Christian Family page
+├── downloads.html             # Downloads page
+├── education.html             # Education page
+├── contact.html               # Contact Us page
+├── give.html                  # Give Online page
 ├── assets/
 │   ├── css/
-│   │   ├── global.css    # Global styles and design system
-│   │   ├── header.css    # Header and navigation styles
-│   │   ├── footer.css    # Footer styles
-│   │   ├── components.css # Reusable component styles
-│   │   └── home.css      # Homepage specific styles
+│   │   ├── global.css         # Global styles and variables
+│   │   ├── header.css         # Header and navigation styles
+│   │   ├── footer.css         # Footer styles
+│   │   ├── home.css           # Homepage specific styles
+│   │   └── pages.css          # Inner pages styles
 │   ├── js/
-│   │   ├── components.js # Reusable JavaScript components
-│   │   └── home.js       # Homepage specific scripts
-│   ├── images/           # Image assets
-│   └── icons/            # Icon assets
-├── pages/
-│   ├── about.html        # About Us page
-│   ├── mandate.html      # The Mandate page
-│   ├── media.html        # Media Center page
-│   ├── wofbi.html        # WOFBI page
-│   ├── family.html       # Christian Family page
-│   ├── downloads.html    # Downloads page
-│   ├── education.html    # Education page
-│   ├── events.html       # Events page
-│   ├── contact.html      # Contact Us page
-│   └── give.html         # Give Online page
-├── admin/
-│   ├── admin-login.html  # Admin login page
-│   └── admin-dashboard.html # Admin CMS dashboard
-└── config/
-    ├── firebase-config.example.js    # Firebase config template
-    ├── firebase-config.js            # Firebase config (gitignored)
-    ├── cloudinary-config.example.js  # Cloudinary config template
-    └── cloudinary-config.js          # Cloudinary config (gitignored)
+│   │   ├── main.js            # Main JavaScript functionality
+│   │   └── slider.js          # Hero slider functionality
+│   └── images/                # Image assets directory
+│       ├── hero/              # Hero section images
+│       ├── about/             # About page images
+│       ├── ministries/        # Ministry images
+│       ├── events/            # Event images
+│       └── icons/             # Icons and favicons
+├── sitemap.xml                # XML sitemap for SEO
+├── robots.txt                 # Robots.txt for search engines
+└── README.md                  # This file
 ```
 
-## 🔒 Security
+## 🎨 Design System
 
-- **Firebase Authentication**: Secure user authentication
-- **Firestore Rules**: Proper database security rules
-- **Environment Variables**: Sensitive data in gitignored files
-- **Admin Protection**: Admin pages require authentication
-- **Input Validation**: Client-side and server-side validation
-- **HTTPS**: Use HTTPS in production
-- **XSS Protection**: Sanitized user inputs
-- **CSRF Protection**: Form tokens (implement in production)
+### Color Palette
+- **Primary Red**: #8B0000 (Dark Red)
+- **Primary Gold**: #FFD700 (Gold)
+- **Primary White**: #FFFFFF (White)
+- **Primary Grey**: #F5F5F5 (Light Grey)
+- **Dark Grey**: #333333 (Text Dark)
+- **Medium Grey**: #666666 (Text Light)
 
-## 🌐 Deployment
+### Typography
+- **Headings**: Poppins (weights: 400, 600, 700)
+- **Body Text**: Open Sans (weights: 400, 600)
+- **Base Font Size**: 16px (responsive)
 
-### Firebase Hosting (Recommended)
+### Layout Principles
+- **Container Max-Width**: 1200px
+- **Grid System**: CSS Grid and Flexbox
+- **Spacing Scale**: Based on rem units (0.5rem to 4rem)
+- **Border Radius**: 4px to 16px for various elements
+- **Shadows**: Three levels (sm, md, lg) for depth
 
-1. **Install Firebase CLI**
+## ✨ Key Features
+
+### 1. Responsive Navigation
+- Sticky header on scroll
+- Mobile-friendly hamburger menu
+- Dropdown menus for sub-pages
+- Active link highlighting
+- Smooth scroll behavior
+
+### 2. Hero Slider
+- Auto-rotating slides (5-second interval)
+- Dot pagination indicators
+- Pause on hover
+- Smooth fade transitions
+- Call-to-action buttons
+
+### 3. Interactive Components
+- Scroll-to-top button
+- WhatsApp floating action button
+- Fade-in animations on scroll
+- Form validation
+- Lazy loading images
+
+### 4. Page Sections
+
+#### Homepage
+- Hero slider with multiple slides
+- Welcome section with church introduction
+- Service times display
+- Ministries overview (8 ministry cards)
+- Latest announcements
+- Call-to-action section
+
+#### About Us
+- Church introduction and history
+- Mission and vision statements
+- Core values (6 values)
+- Leadership team showcase
+- Statistics section
+
+#### The Mandate
+- Divine mandate explanation
+- Biblical foundation
+- Core pillars of the mandate
+
+#### Media Center
+- Latest sermon video embed
+- Sermon archive grid
+- Photo gallery
+- Subscribe CTA
+
+#### WOFBI
+- Bible Institute overview
+- Programs offered
+- Benefits and features
+
+#### Christian Family
+- Family ministry information
+- Programs and resources
+- Support groups
+
+#### Downloads
+- Categorized resources
+- Audio sermons
+- Video messages
+- Study guides and PDFs
+
+#### Education
+- Educational programs
+- Initiatives and partnerships
+- Scholarship information
+
+#### Contact Us
+- Contact information cards
+- Contact form
+- Prayer request form
+- Google Maps integration
+- Office hours
+
+#### Give Online
+- Multiple giving types
+- Quick amount selection
+- Secure payment integration
+- Bank transfer details
+
+### 5. Footer
+- Church information and description
+- Social media links
+- Quick navigation links
+- Service times
+- Contact information
+- Copyright and legal links
+
+## 📱 Responsive Breakpoints
+
+- **Desktop**: 1024px and above
+- **Tablet**: 768px to 1024px
+- **Mobile**: 320px to 768px
+
+All pages are fully responsive and tested across different devices and screen sizes.
+
+## 🚀 Deployment
+
+### Local Development
+
+1. Clone the repository
+2. Open `index.html` in a web browser
+3. Or use a local server:
    ```bash
-   npm install -g firebase-tools
+   # Using Python
+   python -m http.server 8000
+   
+   # Using Node.js
+   npx serve
    ```
 
-2. **Login to Firebase**
-   ```bash
-   firebase login
-   ```
+### Production Deployment
 
-3. **Initialize Firebase**
-   ```bash
-   firebase init hosting
-   ```
+The website can be deployed to any static hosting service:
 
-4. **Deploy**
-   ```bash
-   firebase deploy
-   ```
+1. **GitHub Pages**
+   - Push to GitHub repository
+   - Enable GitHub Pages in repository settings
+   - Select main branch as source
 
-### Netlify
+2. **Netlify**
+   - Connect GitHub repository
+   - Set build command: (none)
+   - Set publish directory: /
 
-1. Connect your GitHub repository to Netlify
-2. Configure build settings:
-   - Build command: (leave empty)
-   - Publish directory: `/`
-3. Add environment variables in Netlify dashboard
-4. Deploy
+3. **Vercel**
+   - Import GitHub repository
+   - Deploy as static site
 
-### Vercel
+4. **Traditional Hosting**
+   - Upload all files via FTP
+   - Ensure directory structure is maintained
+   - Point domain to hosting directory
 
-1. Import your GitHub repository in Vercel
-2. Configure project settings
-3. Deploy
+## 🔍 SEO Features
 
-## 📊 Firestore Collections
+- Semantic HTML5 markup
+- Meta descriptions on all pages
+- Open Graph tags for social sharing
+- XML sitemap (sitemap.xml)
+- Robots.txt file
+- Alt attributes on images
+- Proper heading hierarchy (H1-H6)
+- Clean URL structure
 
-### events
-```javascript
-{
-  title: string,
-  description: string,
-  date: timestamp,
-  time: string,
-  location: string,
-  image: string (URL),
-  createdAt: timestamp
-}
-```
+## ♿ Accessibility
 
-### media
-```javascript
-{
-  title: string,
-  description: string,
-  url: string (Cloudinary URL),
-  thumbnail: string (URL),
-  type: string ('image' | 'video'),
-  createdAt: timestamp
-}
-```
+- ARIA labels on interactive elements
+- Keyboard navigation support
+- High contrast color ratios
+- Descriptive link text
+- Form labels and validation
+- Skip to content links (can be added)
 
-### wordForToday
-```javascript
-{
-  verse: string,
-  reference: string,
-  date: timestamp
-}
-```
-
-### contacts
-```javascript
-{
-  firstName: string,
-  lastName: string,
-  email: string,
-  phone: string,
-  subject: string,
-  message: string,
-  createdAt: timestamp
-}
-```
-
-### prayerRequests
-```javascript
-{
-  name: string,
-  email: string,
-  phone: string,
-  request: string,
-  status: string ('pending' | 'prayed'),
-  createdAt: timestamp
-}
-```
-
-### newsletter
-```javascript
-{
-  email: string,
-  subscribedAt: timestamp,
-  status: string ('active' | 'unsubscribed')
-}
-```
-
-## 🛠️ Technology Stack
-
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with custom properties
-- **JavaScript (ES6+)**: Modern JavaScript features
-- **Firebase**: Backend as a Service
-  - Authentication
-  - Firestore Database
-  - Hosting
-- **Cloudinary**: Media management and CDN
-- **Google Fonts**: Poppins and Inter
-- **Remix Icons**: Icon library
-
-## 📱 Browser Support
+## 🎯 Browser Compatibility
 
 - Chrome (latest)
 - Firefox (latest)
@@ -357,43 +247,61 @@ faithterbanacle/
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 🎯 Performance Optimization
+## 📈 Performance Optimization
 
-- **Lazy Loading**: Images load as they enter viewport
-- **Minification**: Minify CSS and JS in production
-- **Compression**: Enable Gzip/Brotli compression
-- **Caching**: Leverage browser caching
-- **CDN**: Use Cloudinary CDN for media
-- **Code Splitting**: Modular JavaScript files
-- **Async Loading**: Non-critical scripts load asynchronously
+- Minimal CSS and JavaScript
+- No external frameworks or libraries (except fonts and icons)
+- Lazy loading for images
+- Optimized animations
+- Clean, efficient code
+
+## 🔧 Customization
+
+### Changing Colors
+Edit CSS variables in `assets/css/global.css`:
+```css
+:root {
+    --primary-red: #8B0000;
+    --primary-gold: #FFD700;
+    /* ... other variables */
+}
+```
+
+### Modifying Content
+- Edit HTML files directly
+- Replace placeholder images in `assets/images/`
+- Update contact information in all pages
+
+### Adding New Pages
+1. Create new HTML file
+2. Copy header and footer from existing pages
+3. Add page-specific content
+4. Update navigation in all pages
+5. Add to sitemap.xml
+
+## 📝 License
+
+This project is created for Faith Tabernacle - Living Faith Church Worldwide.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+This is a church website project. For updates or modifications, please contact the church administration.
 
-## 📄 License
+## 📞 Contact
 
-This project is part of Faith Tabernacle - Living Faith Church Worldwide.
-
-## 👥 Support
-
-For support and inquiries:
-- Email: info@faithtabernacle.org
-- Phone: +234 801 234 5678
-- WhatsApp: [Click to chat](https://wa.me/2348012345678)
+**Faith Tabernacle**
+- **Address**: Km 10, Idiroko Road, Ota, Ogun State, Nigeria
+- **Phone**: +234 801 234 5678
+- **Email**: info@faithtabernacle.org.ng
+- **Website**: https://faithtabernacle.org.ng
 
 ## 🙏 Acknowledgments
 
-- Living Faith Church Worldwide
-- Faith Tabernacle Leadership Team
-- All contributors and volunteers
+- Living Faith Church Worldwide (Winners' Chapel)
+- Reference website: https://faithtabernacle.org.ng/
+- Google Fonts for typography
+- Remix Icon for icon library
 
 ---
 
-**Built with ❤️ for the Kingdom of God**
-
-*Making an Impact for Jesus Christ*
+**Built with faith, dedication, and excellence | © 2024 Faith Tabernacle. All rights reserved.**

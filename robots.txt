@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /config/
 
-Sitemap: https://faithtabernacle.org/sitemap.xml
+Sitemap: https://faithtabernacle.org.ng/sitemap.xml
