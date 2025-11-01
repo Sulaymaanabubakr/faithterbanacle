@@ -1,413 +1,591 @@
-/* Home Page Specific Styles */
+/* ===================================
+   Homepage Specific Styles
+   =================================== */
 
-/* Word for Today Section */
-.word-section {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
-    padding: var(--spacing-xl) 0;
-}
-
-.word-card {
-    background: var(--primary-white);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
-    text-align: center;
-    box-shadow: var(--shadow-xl);
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.word-card::before {
-    content: '"';
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    font-size: 120px;
-    color: var(--accent-light-blue);
-    font-family: Georgia, serif;
-    opacity: 0.3;
-}
-
-.word-icon {
-    font-size: 3rem;
-    color: var(--primary-gold);
-    margin-bottom: var(--spacing-md);
-}
-
-.word-title {
-    color: var(--primary-blue);
-    margin-bottom: var(--spacing-md);
-}
-
-.word-verse {
-    font-size: 1.25rem;
-    font-style: italic;
-    color: var(--gray-700);
-    line-height: 1.8;
-    margin-bottom: var(--spacing-sm);
-}
-
-.word-reference {
-    color: var(--primary-blue);
-    font-weight: 600;
-}
-
-/* Service Cards */
-.service-card {
-    text-align: center;
-    padding: var(--spacing-xl);
-    border: 2px solid transparent;
-    transition: all var(--transition-base);
-}
-
-.service-card:hover {
-    border-color: var(--primary-gold);
-}
-
-.service-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--spacing-md);
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: var(--primary-white);
-}
-
-.service-time {
-    display: inline-block;
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: var(--accent-light-blue);
-    border-radius: var(--radius-md);
-    color: var(--primary-blue);
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-}
-
-/* Sermon Section */
-.sermon-section {
-    background: var(--gray-50);
-}
-
-.sermon-featured {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: var(--spacing-xl);
-    align-items: center;
-}
-
-.sermon-info h3 {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-}
-
-.sermon-meta {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    color: var(--gray-500);
-    margin-bottom: var(--spacing-md);
-    flex-wrap: wrap;
-}
-
-.sermon-meta .separator {
-    color: var(--gray-300);
-}
-
-.sermon-description {
-    color: var(--gray-600);
-    line-height: 1.8;
-    margin-bottom: var(--spacing-lg);
-}
-
-/* Events Section */
-.events-section {
-    background: var(--primary-white);
-}
-
-.event-card {
-    position: relative;
-    padding-top: 60px;
-}
-
-.event-date {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
-    border-radius: var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-white);
-    box-shadow: var(--shadow-lg);
-}
-
-.date-day {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.date-month {
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.event-time {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--gray-500);
-    margin-bottom: var(--spacing-md);
-}
-
-/* Ministries Section */
-.ministries-section {
-    background: var(--gray-50);
-}
-
-.ministry-card {
-    text-align: center;
-    padding: var(--spacing-lg);
-    background: var(--primary-white);
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--gray-100);
-    transition: all var(--transition-base);
-}
-
-.ministry-card:hover {
-    border-color: var(--primary-gold);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.ministry-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto var(--spacing-md);
-    background: var(--accent-light-gold);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--primary-gold);
-}
-
-.ministry-card h3 {
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-sm);
-}
-
-.ministry-card p {
-    font-size: 0.9rem;
-    color: var(--gray-600);
-}
-
-/* Media Preview Section */
-.media-preview-section {
-    background: var(--primary-white);
-}
-
-.media-grid {
-    gap: var(--spacing-md);
-}
-
-.media-item {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    height: 250px;
-    cursor: pointer;
-    transition: all var(--transition-base);
-}
-
-.media-item:hover {
-    transform: scale(1.05);
-}
-
-.media-item img {
+/* ===================================
+   Preloader
+   =================================== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background: var(--primary-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
 }
 
-.media-overlay {
+.preloader-logo {
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+}
+
+.preloader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--light-grey);
+    border-top-color: var(--primary-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.preloader-text {
+    margin-top: 1.5rem;
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-red);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+.hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: var(--spacing-md);
     opacity: 0;
-    transition: opacity var(--transition-base);
+    transition: opacity 1s ease;
 }
 
-.media-item:hover .media-overlay {
+.hero-slide.active {
     opacity: 1;
 }
 
-.media-info {
-    color: var(--primary-white);
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.media-info h4 {
-    color: var(--primary-white);
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.85), rgba(139, 0, 0, 0.5));
 }
 
-.media-info p {
-    font-size: 0.875rem;
-    color: var(--gray-200);
-    margin: 0;
-}
-
-.media-play-icon {
+.hero-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--primary-red);
-    transition: all var(--transition-base);
+    text-align: center;
+    color: var(--primary-white);
+    width: 90%;
+    max-width: 900px;
+    z-index: 10;
 }
 
-.media-item:hover .media-play-icon {
-    transform: translate(-50%, -50%) scale(1.1);
+.hero-subtitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--primary-white);
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Hero Pagination */
+.hero-pagination {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--primary-white);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.hero-dot.active {
+    background: var(--primary-gold);
+    transform: scale(1.2);
+}
+
+/* ===================================
+   Welcome Section
+   =================================== */
+.welcome {
     background: var(--primary-white);
 }
 
-/* Call to Action Section */
-.cta-section {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
-    padding: var(--spacing-3xl) 0;
+.welcome-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.cta-content {
+.welcome-image {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome-text h2 {
+    font-size: 2.5rem;
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+}
+
+.welcome-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-card {
     text-align: center;
+    padding: 1.5rem;
+    background: var(--primary-grey);
+    border-radius: var(--radius-lg);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===================================
+   Service Times Section
+   =================================== */
+.service-times {
+    background: var(--primary-red);
     color: var(--primary-white);
 }
 
-.cta-content h2 {
+.service-times .section-title h2 {
     color: var(--primary-white);
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: var(--spacing-md);
 }
 
-.cta-content p {
+.service-times .section-title p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition-normal);
+}
+
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--primary-gold);
+    margin-bottom: 1.5rem;
+}
+
+.service-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.service-time {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.service-type {
+    font-size: 0.95rem;
+    color: var(--primary-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===================================
+   Ministries Section
+   =================================== */
+.ministries {
+    background: var(--primary-grey);
+}
+
+.ministries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.ministry-card {
+    background: var(--primary-white);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.ministry-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ministry-icon {
+    font-size: 3rem;
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+}
+
+.ministry-card h3 {
     font-size: 1.25rem;
-    color: var(--gray-100);
-    margin-bottom: var(--spacing-xl);
-    max-width: 600px;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+}
+
+.ministry-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* ===================================
+   Announcements Section
+   =================================== */
+.announcements {
+    background: var(--primary-white);
+}
+
+.announcements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.announcement-card {
+    background: var(--primary-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.announcement-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.announcement-content {
+    padding: 1.5rem;
+}
+
+.announcement-date {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-red);
+    color: var(--primary-white);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.announcement-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+}
+
+.announcement-text {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.announcement-link {
+    color: var(--primary-red);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.announcement-link:hover {
+    gap: 0.75rem;
+}
+
+/* ===================================
+   Call to Action Section
+   =================================== */
+.cta {
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+    color: var(--primary-white);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    color: var(--primary-white);
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .cta-buttons {
     display: flex;
-    gap: var(--spacing-md);
+    gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.btn-lg {
-    padding: 1.125rem 2.5rem;
-    font-size: 1.125rem;
+/* ===================================
+   Scroll to Top Button
+   =================================== */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-red);
+    color: var(--primary-white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-sm {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-    .sermon-featured {
-        grid-template-columns: 1fr;
+.scroll-top:hover {
+    background: var(--dark-red);
+    transform: translateY(-5px);
+}
+
+/* ===================================
+   WhatsApp Button
+   =================================== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: var(--primary-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-normal);
+    z-index: 999;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.75rem;
+    }
+    
+    .ministries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .word-card {
-        padding: var(--spacing-lg);
+    .hero {
+        height: 70vh;
+        min-height: 500px;
     }
     
-    .word-verse {
-        font-size: 1.125rem;
-    }
-    
-    .service-icon {
-        width: 70px;
-        height: 70px;
+    .hero-title {
         font-size: 2rem;
     }
     
-    .sermon-info h3 {
-        font-size: 1.5rem;
+    .hero-description {
+        font-size: 1rem;
     }
     
-    .event-date {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .date-day {
-        font-size: 1.75rem;
-    }
-    
-    .ministry-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.75rem;
-    }
-    
-    .media-item {
-        height: 200px;
-    }
-    
-    .cta-buttons {
+    .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
     
-    .cta-buttons .btn {
-        width: 100%;
-        max-width: 300px;
+    .welcome-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .welcome-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .services-grid,
+    .ministries-grid,
+    .announcements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .scroll-top,
+    .whatsapp-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+    
+    .whatsapp-btn {
+        left: 1rem;
+        bottom: 5rem;
+    }
+    
+    .scroll-top {
+        right: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .word-section {
-        padding: var(--spacing-lg) 0;
+    .hero-title {
+        font-size: 1.75rem;
     }
     
-    .word-verse {
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+    }
+    
+    .cta h2 {
+        font-size: 1.75rem;
+    }
+    
+    .cta p {
         font-size: 1rem;
-    }
-    
-    .service-card {
-        padding: var(--spacing-lg);
     }
 }
