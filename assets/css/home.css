@@ -53,6 +53,14 @@ body {
     color: #ffffff;
 }
 
+.landing-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(0.75rem, 1.5vw, 1.5rem);
+    flex: 0 0 auto;
+}
+
 .landing-brand {
     display: flex;
     align-items: center;
@@ -417,24 +425,36 @@ body {
         flex-direction: column;
         align-items: stretch;
         width: 100%;
-        padding: 0.75rem clamp(0.75rem, 6vw, 1.5rem);
+        padding: clamp(0.75rem, 5vw, 1.25rem) clamp(0.85rem, 6vw, 1.75rem);
+    }
+
+    .landing-header-top {
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1.25rem;
     }
 
     .landing-brand {
-        justify-content: space-between;
-        gap: 1rem;
+        justify-content: flex-start;
+        gap: 0.85rem;
     }
 
     .landing-brand-text span {
-        letter-spacing: 0.18em;
-        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        font-size: 0.78rem;
     }
 
     .landing-menu {
         display: inline-flex;
-        align-self: flex-end;
-        letter-spacing: 0.24em;
-        font-size: 0.72rem;
+        align-self: flex-start;
+        padding: 0.65rem 1.35rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.96);
+        color: #7a0000;
+        letter-spacing: 0.18em;
+        font-size: 0.78rem;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
     }
 
     .slider-arrow {
@@ -447,13 +467,13 @@ body {
         width: 100%;
         flex-direction: column;
         align-items: stretch;
-        gap: 1rem;
-        padding: 1.1rem 0;
+        gap: 0.85rem;
+        padding: 1.25rem 1.35rem;
         border-radius: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        box-shadow: none;
-        margin-top: 0.75rem;
-        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.55);
+        margin-top: 0.85rem;
+        background: rgba(5, 0, 0, 0.85);
     }
 
     .nav.active {
@@ -463,16 +483,20 @@ body {
     .landing-nav-list {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 0.75rem;
         width: 100%;
     }
 
     .landing-nav-link {
         display: block;
         width: 100%;
-        font-size: 0.78rem;
-        letter-spacing: 0.24em;
-        padding: 0.35rem 0;
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+        padding: 0.65rem 0.85rem;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 0.65rem;
+        text-align: left;
     }
 
     .slide-title {
@@ -489,13 +513,49 @@ body {
     }
 
     .floating-cta {
-        width: calc(100% - 2.5rem);
+        position: fixed;
+        bottom: clamp(1rem, 6vw, 1.8rem);
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - clamp(1rem, 10vw, 3rem));
+        padding: 0.85rem 1rem;
+        background: rgba(8, 0, 0, 0.35);
+        border-radius: 20px;
+        backdrop-filter: blur(24px);
+        gap: 0.85rem;
+        z-index: 40;
+    }
+
+    .floating-btn {
+        flex: 1 1 48%;
+        border-radius: 12px;
+        letter-spacing: 0.12em;
+        font-size: 0.82rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .chat-btn {
+        position: static;
+        width: 52px;
+        height: 52px;
+        margin-left: auto;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
     }
 }
 
 @media (max-width: 540px) {
+    .landing-header {
+        padding: clamp(0.65rem, 5vw, 1rem) clamp(0.75rem, 8vw, 1.35rem);
+    }
+
     .landing-brand-text span {
-        letter-spacing: 0.2em;
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+    }
+
+    .landing-nav-link {
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
     }
 
     .slide-note {
@@ -503,8 +563,8 @@ body {
     }
 
     .slide-meta {
-        font-size: 0.78rem;
-        letter-spacing: 0.14em;
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
     }
 
     .slide-location {
@@ -512,11 +572,14 @@ body {
     }
 
     .floating-cta {
+        flex-direction: column;
         gap: 0.65rem;
+        padding: 0.85rem 0.95rem;
     }
 
     .floating-btn {
-        flex: 1 1 45%;
+        flex: 1 1 auto;
+        width: 100%;
         text-align: center;
     }
 
@@ -535,3 +598,5 @@ body {
         animation: none !important;
     }
 }
+
+
