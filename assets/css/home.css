@@ -514,37 +514,38 @@ body {
 
     .floating-cta {
         position: fixed;
-        bottom: clamp(1rem, 6vw, 1.8rem);
+        bottom: clamp(0.85rem, 6vw, 1.4rem);
         left: 50%;
         transform: translateX(-50%);
-        width: calc(100% - clamp(1rem, 10vw, 3rem));
-        padding: 0.6rem 0.75rem;
-        background: rgba(8, 0, 0, 0.35);
-        border-radius: 20px;
-        backdrop-filter: blur(24px);
+        display: inline-flex;
+        gap: 0.55rem;
+        padding: 0;
+        background: none;
+        border: none;
+        width: auto;
         z-index: 40;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(120px, 1fr));
-        gap: 0.5rem 0.65rem;
-        align-items: center;
-        justify-items: stretch;
     }
 
     .floating-btn {
-        width: 100%;
-        border-radius: 10px;
-        letter-spacing: 0.08em;
-        font-size: 0.75rem;
-        padding: 0.65rem 0.75rem;
+        flex: 0 0 auto;
+        min-width: 120px;
+        max-width: 140px;
+        border-radius: 999px;
+        letter-spacing: 0.12em;
+        font-size: 0.78rem;
+        padding: 0.55rem 1.1rem;
+        text-align: center;
     }
 
     .chat-btn {
-        width: 52px;
-        height: 52px;
-        grid-column: 1 / -1;
-        justify-self: center;
-        margin: 0 0 0.35rem;
-        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+        position: fixed;
+        bottom: clamp(0.6rem, 5vw, 1.1rem);
+        right: clamp(0.8rem, 6vw, 1.6rem);
+        margin: 0;
+        width: 54px;
+        height: 54px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+        z-index: 41;
     }
 }
 
@@ -577,22 +578,19 @@ body {
     }
 
     .floating-cta {
-        grid-template-columns: repeat(2, minmax(110px, 1fr));
-        gap: 0.45rem 0.55rem;
-        padding: 0.55rem 0.6rem;
+        gap: 0.45rem;
     }
 
     .floating-btn {
-        font-size: 0.72rem;
-        padding: 0.55rem 0.65rem;
+        min-width: 110px;
+        max-width: 130px;
+        font-size: 0.7rem;
+        padding: 0.5rem 0.9rem;
     }
 
     .chat-btn {
-        margin-bottom: 0.25rem;
-    }
-
-    .chat-btn {
-        order: -1;
+        bottom: clamp(0.45rem, 5vw, 0.9rem);
+        right: clamp(0.65rem, 8vw, 1.25rem);
     }
 }
 
