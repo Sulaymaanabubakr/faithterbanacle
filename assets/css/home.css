@@ -524,6 +524,9 @@ body {
         border: none;
         width: auto;
         z-index: 40;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
     }
 
     .floating-btn {
@@ -535,6 +538,9 @@ body {
         font-size: 0.78rem;
         padding: 0.55rem 1.1rem;
         text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .chat-btn {
@@ -579,6 +585,7 @@ body {
 
     .floating-cta {
         gap: 0.45rem;
+        flex-wrap: nowrap;
     }
 
     .floating-btn {
