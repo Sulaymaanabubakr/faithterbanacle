@@ -173,46 +173,139 @@
             color: #dc2626;
         }
 
-        /* Mobile header */
+        /* Mobile header matching homepage style */
         .mobile-header {
             position: fixed;
-            top: 0;
+            top: 15px;
             left: 0;
             right: 0;
             z-index: 1001;
-            background: rgba(220, 38, 38, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
             display: none;
+            padding: 0 20px;
         }
 
-        .mobile-header .menu-title {
+        .mobile-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .mobile-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-brand img {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+        }
+
+        .mobile-brand-text {
             color: white;
             font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
+            font-size: 12px;
+            line-height: 1.2;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .mobile-header ul {
-            display: none;
-            list-style: none;
-            padding: 0;
-            margin: 15px 0 0 0;
-        }
-
-        .mobile-header ul.show {
+        .mobile-brand-text span {
             display: block;
         }
 
-        .mobile-header li {
-            padding: 8px 0;
+        .mobile-menu-button {
+            background: rgba(255, 255, 255, 0.95);
+            color: #980000;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            font-size: 12px;
         }
 
-        .mobile-header a {
-            color: white;
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 15px;
+            width: 200px;
+            max-height: 60vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0;
+            transform: translateY(-8px) scale(0.95);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .mobile-nav li {
+            padding: 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            width: 100%;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 0.7rem 1rem;
+            color: #444444;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 14px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.25s ease;
+            text-align: center;
+            background: transparent;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            position: relative;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(152, 0, 0, 0.08);
+            color: #980000;
+            transform: scale(1.02);
+        }
+
+        .mobile-nav li:first-child a {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .mobile-nav li:last-child a {
+            border-bottom: none;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
         }
 
         .banner-area {
@@ -227,6 +320,59 @@
 
         .content-area {
             margin-top: 0;
+        }
+
+        /* Footer Styling */
+        .base-area {
+            background: #333333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .base-area .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: white;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .base-area .social-icon i {
+            font-size: 18px;
+            line-height: inherit;
+        }
+
+        .base-area .social-icon:hover {
+            transform: translateY(-2px);
+        }
+
+        .base-area .social-icon:hover .ri-facebook-fill {
+            color: #1877f2;
+        }
+
+        .base-area .social-icon:hover .ri-twitter-fill {
+            color: #1da1f2;
+        }
+
+        .base-area .social-icon:hover .ri-youtube-fill {
+            color: #ff0000;
+        }
+
+        .base-area .social-icon:hover .ri-instagram-fill {
+            color: #e4405f;
+        }
+
+        .base-area .social-icon:hover {
+            background: white;
+            border-color: white;
         }
 
         @media (max-width: 768px) {
@@ -276,21 +422,33 @@
 
     <!-- Mobile Header -->
     <header class="mobile-header">
-        <div class="menu-title" onclick="toggleMobileMenu()">
-            MENU <i></i>
+        <div class="mobile-header-top">
+            <div class="mobile-brand">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="assets/images/logo-lfc.svg" alt="Living Faith Church Logo">
+                    <div class="mobile-brand-text">
+                        <span>Living Faith</span>
+                        <span>Church Worldwide</span>
+                        <span>International</span>
+                    </div>
+                </a>
+            </div>
+            <button class="mobile-menu-button" onclick="toggleMobileMenu()">Menu</button>
         </div>
-        <ul class="menu" id="hidden-menu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">about us</a></li>
-            <li><a href="mandate.html">the mandate</a></li>
-            <li><a href="https://mediacenter.faithtabernacle.org.ng/stream/live" target="_blank">media center</a></li>
-            <li><a href="https://wofbi.lfcww.org/" target="_blank">Wofbi</a></li>
-            <li><a href="family.html">Christian Family</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="education.html">education</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="give.html">Give Online</a></li>
-        </ul>
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="mandate.html">the mandate</a></li>
+                <li><a href="https://mediacenter.faithtabernacle.org.ng/stream/live" target="_blank">media center</a></li>
+                <li><a href="https://wofbi.lfcww.org/" target="_blank">Wofbi</a></li>
+                <li><a href="family.html">Christian Family</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="education.html">education</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="give.html">Give Online</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Banner -->
@@ -469,10 +627,18 @@
                 <div class="col-sm-4">
                     Copyright © <span id="myID"></span> - LIVING FAITH CHURCH WORLDWIDE INTERNATIONAL<br><br>
                     <center>
-                        <a href="https://www.facebook.com/WinnersWLD/" target="_blank" class="fa fa-facebook"></a> 
-                        <a href="https://twitter.com/WinnersWLD" target="_blank" class="fa fa-twitter"></a>
-                        <a href="https://www.youtube.com/@lfcww" class="fa fa-youtube" target="_blank"></a>
-                        <a href="https://www.instagram.com/davidoyedepomin/" class="fa fa-instagram" target="_blank"></a>
+                        <a href="https://www.facebook.com/WinnersWLD/" target="_blank" class="social-icon">
+                            <i class="ri-facebook-fill"></i>
+                        </a> 
+                        <a href="https://twitter.com/WinnersWLD" target="_blank" class="social-icon">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@lfcww" target="_blank" class="social-icon">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/davidoyedepomin/" target="_blank" class="social-icon">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
                     </center>
                 </div>
                 <div class="col-sm-4"></div>
@@ -488,9 +654,26 @@
     
     <script>
         function toggleMobileMenu() {
-            const menu = document.getElementById('hidden-menu');
+            const menu = document.getElementById('mobile-nav');
             menu.classList.toggle('show');
         }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobile-nav');
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const mobileHeader = document.querySelector('.mobile-header');
+            
+            // Check if click is outside the mobile header area
+            if (!mobileHeader.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Prevent menu from closing when clicking inside it
+        document.getElementById('mobile-nav').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
 
         function example() {
             var dateobj = new Date();
