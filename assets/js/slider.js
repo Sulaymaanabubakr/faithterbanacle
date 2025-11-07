@@ -111,8 +111,17 @@
 
         slides.forEach((slide, index) => {
             const isActive = index === normalizedIndex;
-            slide.classList.toggle('is-active', isActive);
+            
+            // Reset animations for all slides first
+            slide.classList.remove('is-active');
             slide.setAttribute('aria-hidden', String(!isActive));
+            
+            if (isActive) {
+                // Small delay to ensure reset, then activate
+                setTimeout(() => {
+                    slide.classList.add('is-active');
+                }, 50);
+            }
         });
 
         currentIndex = normalizedIndex;
