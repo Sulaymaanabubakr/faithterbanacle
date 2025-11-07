@@ -19,7 +19,7 @@ Faith Tabernacle is a Bible-believing church committed to the proclamation of th
 - **HTML5**: Semantic markup for content structure
 - **CSS3**: Modern styling with Flexbox and Grid layouts
 - **JavaScript (ES6)**: Interactive features and dynamic functionality
-- **Google Fonts**: Poppins and Open Sans typography
+- **Google Fonts**: Oswald and Source Sans 3 typography
 - **Remix Icons**: Icon library for UI elements
 - **No Frameworks**: Pure vanilla code for maximum performance
 
@@ -69,8 +69,8 @@ faithterbanacle/
 - **Medium Grey**: #666666 (Text Light)
 
 ### Typography
-- **Headings**: Poppins (weights: 400, 600, 700)
-- **Body Text**: Open Sans (weights: 400, 600)
+- **Headings**: Oswald (weights: 400, 500, 600, 700)
+- **Body Text**: Source Sans 3 (weights: 400, 500, 600)
 - **Base Font Size**: 16px (responsive)
 
 ### Layout Principles
