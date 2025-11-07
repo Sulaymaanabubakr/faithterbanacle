@@ -392,6 +392,42 @@ body {
     outline-offset: 3px;
 }
 
+/* Floating Action Button */
+.fab-chat {
+    position: fixed;
+    bottom: clamp(1.5rem, 4vh, 2.5rem);
+    left: clamp(0.8rem, 2vw, 1.2rem);
+    width: clamp(48px, 3.5vw, 52px);
+    height: clamp(48px, 3.5vw, 52px);
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #ff3333 0%, #e60000 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(230, 0, 0, 0.4), 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-normal);
+    z-index: 1000;
+}
+
+.fab-chat:hover {
+    background: linear-gradient(135deg, #ff4444 0%, #ff1a1a 100%);
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(230, 0, 0, 0.5), 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.fab-chat:active {
+    transform: scale(0.98);
+}
+
+.fab-chat:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
+}
+
 @media (max-width: 992px) {
     .landing-header {
         flex-wrap: wrap;
@@ -463,9 +499,7 @@ body {
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
     }
 
-    .slider-arrow {
-        display: none;
-    }
+
 
     .landing-nav {
         display: none;
