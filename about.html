@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Faith Tabernacle - Our history, mission, vision and values. Discover what makes us a vibrant community of believers.">
-    <meta name="keywords" content="Faith Tabernacle About, Living Faith Church History, Church Mission Vision">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Learn about Bishop David Oyedepo, founder of Living Faith Church Worldwide, our 12 pillars of faith, and our divine mandate to liberate the world.">
+    <meta name="keywords" content="Bishop David Oyedepo, Living Faith Church Worldwide, Faith Tabernacle, 12 Pillars, Divine Mandate">
     
-    <title>About Us | Faith Tabernacle - Living Faith Church Worldwide</title>
+    <title>About Us | Living Faith Church Worldwide - Official Website</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
@@ -14,7 +14,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Staatliches&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Remix Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -24,349 +30,441 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/pages.css">
+
+    <style>
+        .fa {
+            padding: 10px;
+            font-size: 20px;
+            width: 40px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook, .fa-twitter, .fa-youtube, .fa-instagram {
+            background: none;
+            color: white;
+        }
+
+        .custom-tabs {
+            display: block;
+        }
+
+        .content-one, .content-two, .content-three, .content-four {
+            display: none;
+            margin-top: 9px;
+            border-top: 1px solid #ddd;
+        }
+
+        .content-one p, .content-two p, .content-three p, .content-four p {
+            padding: 10px 0 0;
+            margin: 0;
+        }
+
+        .custom-tabs .tab-wrap {
+            padding: 7px 12px 9px 0;
+        }
+
+        .custom-tabs .tab-wrap .tab-head {
+            vertical-align: middle;
+            cursor: pointer;
+            display: none;
+        }
+
+        .custom-tabs .tab-wrap .tab-head:checked + .tab-label {
+            border-bottom: 3px solid red;
+        }
+
+        .custom-tabs .tab-wrap #tab1:checked ~ .content-one,
+        .custom-tabs .tab-wrap #tab2:checked ~ .content-two,
+        .custom-tabs .tab-wrap #tab3:checked ~ .content-three,
+        .custom-tabs .tab-wrap #tab4:checked ~ .content-four {
+            display: block;
+        }
+
+        .custom-tabs .tab-wrap .tab-label {
+            vertical-align: middle;
+            cursor: pointer;
+            padding: 7px 25px;
+            text-align: center;
+        }
+
+        .banner-area {
+            background: url('assets/images/about/section-bg-101.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            min-height: 300px;
+        }
+
+        .top-menu {
+            display: none;
+        }
+
+        .top {
+            padding: 10px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        #logo-holder img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        #title-holder {
+            color: #333;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        #menu-holder {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #menu-holder li {
+            margin: 0 10px;
+        }
+
+        #menu-holder a {
+            color: #333;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .base-area {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .top-menu {
+                display: block;
+                background: #dc2626;
+                padding: 1rem;
+            }
+
+            .menu-title {
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .top-menu ul {
+                display: none;
+                list-style: none;
+                padding: 0;
+                margin: 10px 0 0 0;
+            }
+
+            .top-menu ul.show {
+                display: block;
+            }
+
+            .top-menu li {
+                padding: 5px 0;
+            }
+
+            .top-menu a {
+                color: white;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .top {
+                display: none;
+            }
+
+            #menu-holder {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="landing-header" aria-label="Faith Tabernacle identity">
-        <div class="landing-header-top">
-            <div class="landing-brand">
-                <img class="landing-brand-logo" src="assets/images/logo-lfc.svg" alt="Living Faith Church Worldwide logo">
-                <div class="landing-brand-text" aria-label="Living Faith Church Worldwide International">
-                    <span>Living Faith</span>
-                    <span>Church Worldwide</span>
-                    <span>International</span>
-                </div>
-            </div>
-            <button class="landing-menu menu-toggle" type="button" aria-label="Open navigation menu">Menu</button>
+    <!-- Mobile Menu -->
+    <div class="top-menu">
+        <div class="menu-title" onclick="toggleMobileMenu()">
+            MENU <i></i>
         </div>
-        <nav class="landing-nav nav" aria-label="Primary">
-            <ul class="landing-nav-list">
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="index.html">Home</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="about.html">About Us</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="mandate.html">The Mandate</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="https://mediacenter.faithtabernacle.org.ng/stream/live" target="_blank">Media Center</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="https://wofbi.lfcww.org/" target="_blank">WOFBI</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="family.html">Christian Family</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="downloads.html">Downloads</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="education.html">Education</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="contact.html">Contact Us</a></li>
-                <li class="landing-nav-item nav-item"><a class="landing-nav-link nav-link" href="give.html">Give Online</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-menu-overlay"></div>
-    </header>
+        <ul class="menu" id="hidden-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">about us</a></li>
+            <li><a href="mandate.html">the mandate</a></li>
+            <li><a href="https://mediacenter.faithtabernacle.org.ng/stream/live" target="_blank">media center</a></li>
+            <li><a href="https://wofbi.lfcww.org/" target="_blank">Wofbi</a></li>
+            <li><a href="family.html">Christian Family</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="education.html">education</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="give.html">Give Online</a></li>
+        </ul>
+    </div>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="page-hero-overlay"></div>
-        <div class="container">
-            <div class="page-hero-content">
-                <h1 class="page-title">About Us</h1>
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a>
-                    <i class="ri-arrow-right-s-line"></i>
-                    <span>About Us</span>
+    <!-- Desktop Header -->
+    <div class="top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 col-xs-4 brand">
+                    <a href="index.html" style="float: left; width: 100%;">
+                        <span id="logo-holder"><img src="assets/images/logo-lfc.svg" alt="Living Faith Church Logo"></span>
+                        <span id="title-holder">Living Faith<br>Church Worldwide<br>International</span>
+                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Introduction -->
-    <section class="about-intro section">
-        <div class="container">
-            <div class="about-intro-grid">
-                <div class="about-intro-image animate-on-scroll">
-                    <img src="assets/images/about/church-worship.jpg" alt="Faith Tabernacle Worship">
-                </div>
-                <div class="about-intro-text animate-on-scroll">
-                    <h2>Who We Are</h2>
-                    <p>Faith Tabernacle is a Bible-believing church and a faith assembly under Living Faith Church Worldwide (also known as Winners' Chapel). We are committed to the proclamation of the gospel of our Lord Jesus Christ and the word of faith to the nations of the world.</p>
-                    <p>Founded on the vision to liberate people from all oppressions of the devil through the preaching of the word of faith, we have grown into a vibrant community of believers dedicated to worship, fellowship, and service.</p>
-                    <p>Our church is built on the solid foundation of God's word, and we are passionate about seeing lives transformed through the power of the gospel.</p>
+                <div class="col-sm-8 col-xs-8">
+                    <ul class="menu" id="menu-holder">
+                        <li><a href="give.html">Give Online</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="education.html">education</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="family.html">Christian Family</a></li>
+                        <li><a href="https://wofbi.lfcww.org/" target="_blank">Wofbi</a></li>
+                        <li><a href="https://mediacenter.faithtabernacle.org.ng/stream/live" target="_blank">media center</a></li>
+                        <li><a href="mandate.html">the mandate</a></li>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="index.html">HOME</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Mission & Vision -->
-    <section class="mission-vision section bg-grey">
-        <div class="container">
-            <div class="mission-vision-grid">
-                <div class="mission-card animate-on-scroll">
-                    <div class="mission-icon">
-                        <i class="ri-flag-line"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>To spread the gospel of Jesus Christ to all nations, making disciples and building believers through the teaching of God's word. We are committed to demonstrating the love of Christ through worship, service, and fellowship.</p>
-                </div>
-                <div class="vision-card animate-on-scroll">
-                    <div class="vision-icon">
-                        <i class="ri-eye-line"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To become a model church that impacts our community and the world, raising champions of faith who will transform their generation through the power of God's word and the demonstration of His Spirit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Banner -->
+    <div class="banner-area banner-big" style="background: url('assets/images/about/section-bg-101.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;min-height: 300px;">
+    </div>
 
-    <!-- Core Values -->
-    <section class="core-values section">
+    <!-- Content Area -->
+    <div class="content-area">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Core Values</h2>
-                <div class="section-divider"></div>
-                <p>The principles that guide everything we do</p>
-            </div>
-            <div class="values-grid animate-on-scroll">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="ri-book-open-line"></i>
-                    </div>
-                    <h4>Word-Based</h4>
-                    <p>We are founded on the uncompromising teaching of God's word</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="ri-heart-line"></i>
-                    </div>
-                    <h4>Love</h4>
-                    <p>We demonstrate God's love in all our relationships and service</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="ri-star-line"></i>
-                    </div>
-                    <h4>Excellence</h4>
-                    <p>We pursue excellence in all aspects of ministry and service</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="ri-shield-check-line"></i>
-                    </div>
-                    <h4>Integrity</h4>
-                    <p>We uphold the highest standards of honesty and moral character</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="ri-team-line"></i>
-                    </div>
-                    <h4>Community</h4>
-                    <p>We value genuine fellowship and support for one another</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="ri-global-line"></i>
-                    </div>
-                    <h4>Outreach</h4>
-                    <p>We are committed to reaching our community and the world</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="row">
+                <div class="custom-tabs">
+                    <div class="tab-wrap">
+                        <input class="tab-head" id="tab1" type="radio" name="tabs" checked>
+                        <label class="tab-label" for="tab1">BISHOP DAVID OYEDEPO</label>
+                        
+                        <input class="tab-head" id="tab3" type="radio" name="tabs">
+                        <label class="tab-label" for="tab3">12 PILLARS</label>
+                        
+                        <input class="tab-head" id="tab4" type="radio" name="tabs">
+                        <label class="tab-label" for="tab4">MISSION STATEMENT</label>
+                        
+                        <div class="content-one" style="padding-top:20px;">
+                            <div class="row featurette">
+                                <div class="col-md-5">
+                                    <img class="featurette-image img-fluid mx-auto" style="width: 500px;" src="assets/images/about/about.jpg" alt="Bishop David Oyedepo">
+                                </div>
+                                <div class="col-md-7 shadow-sm rounded bg-light">
+                                    <h2 class="featurette-heading" style="font-family: 'Staatliches', cursive;font-size:3rem;text-align:right;">BISHOP DAVID O. OYEDEPO <br><span class="text-muted">Founder & President, Living Faith Church Worldwide</span></h2>
+                                    <p align="justify" style="font-size: large;letter-spacing: 0.1rem;" class="bg-light p-5 rounded shadow-md">
+                                    Bishop David O. Oyedepo received a call into the ministry through a heavenly vision, where he saw a lineup of battered, beaten, tattered, deformed, groaning for escape, he began sobbing with the. In response to his question, 'but why Lord?' God answered, "But from the beginning it was not so, and now the hour has come to liberate the whole world from all oppression of the devil through the preaching of the world of faith and I AM sending you to undertake this task." Today, he stands as an Apostle of Faith to the nations, the impact of whose ministry has continued to spread across many nations of the world. 
+                                    As an accomplished author, he has written over 100 titles, which circulates both in hard and online stores around the world. A number of these titles have been translated to other major languages of the world including French, Chinese, Spanish and others 
+                                    He is the Founder and President of Living Faith Church worldwide, aka Winners' Chapel International and presently oversees over 21,000 churches across Nigeria and several thousand across six major continents of the world.
+                                    He is the founding and Senior Pastor of the Faith Tabernacle, Canaanland Ota, Nigeria, the international Headquarter of the Church, which is reputed to be the largest single congregation in the world 
+                                    As a leader of renown, he has redefined leadership as an evolution of values. 
+                                    Today, he is spearheading a revolution in education across the nation, through his network of primary and secondary across the nation and the establishment of two thriving universities, namely, Covenant university, Ota, Lagos and Landmark University Omuaran, Kwara State, both in Nigeria. 
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <br><br>
+                            <div class="row">
+                                <div class="col-lg-6 p-5 shadow-sm rounded bg-light">
+                                    <h2 style="font-family: 'Staatliches', cursive;font-size:3rem;text-align:left; color:333" class="">Who is David Oyedepo?</h2>
+                                    <p style="text-align:justify;font-size:large; letter-spacing: 0.1rem;"> 
+                                    - Born on September 27th, 1954. He began his academic career in Architecture and later went on to obtain a PhD in Human Development, from Honolulu University Hawaii, USA. <br><br>
+                                    - Born again – Feb. 19, 1969, at 15<br><br>
+                                    - Received a called to full time ministry – May 2, 1981 at 26<br><br>
+                                    - Began his teaching ministry through a weekly fellowship meeting called 'Faith Liberation Hour' and a monthly seminal that covers Friday evening – May 29, 1981 <br><br>
+                                    - Began his Church ministry and planted the 1st Church in Kaduna, called, Living Faith World Outreach – Dec. 11, 1983 <br><br>
+                                    - Published and released his first 2 books. 'The Miracle seed and the law of Faith' – April 25, 1985<br><br>
+                                    - Founded the Word of Faith Bible Institute, which today runs across many nations of the world – Sep. 1: 1986 <br><br>
+                                    - Began church planting work in the northern part of Nigeria – May 1987 <br><br>
+                                    - His mission acquired a 13-acre property in a prime area of Kaduna city called Garden of Faith – Sep. 1989<br><br>
+                                    - Moved into Lagos, following a divine mandate, "Arise get down to Lagos and raise me a people" – Sep. 24,1989 <br><br>
+                                    - Founded Dominion Publishing House, whose printing press has today grown to an industrial scale and currently publishing Bibles – July 1992 <br><br>
+                                    - Led a great revival at the Lagos church that took the church from about 3,500 to 50,000 within 5 years – 1994-1999 <br><br>
+                                    - Following another divine mandate "the harvest of Africa is overripe, rush in and preserve it from decadence, embarked on Mission to Africa. Today, his mission now has a strong presence in over 41 nations of Africa – Jan. 1994<br><br>
+                                    - His Mission took delivery of the first mission aircraft – Sept. 18, 1996 <br><br>
+                                    - His mission acquired 530 acres of property in the outskirts of Ota, a suburb of Lagos which is today called Canaanland – May 1998 <br><br>
+                                    - 50,000-seat capacity sanctuary called Faith Tabernacle, was built and dedicated within one year to the glory – Sept. 1998 – Sept. 1999<br><br>
+                                    - Started the annual convocation of Winners worldwide, tagged "Shiloh" which now transmits to about 177 nations real time and draws delegates from between 50 and 60 nations annually, with millions gathering at various viewing centers across Nigeria and many other nations of the world – 1999 <br><br>   
+                                    - Embarked on Mission to the world, covering Europe, North and South America, Asia, Australia and Middle East. – August 2000<br><br>
+                                    - Founded Covenant University, which is today listed among the Elite Universities of the world – October 2002<br><br>
+                                    - Founded Landmark University, a university blazing the trail today within the Nigerian university education space – Mar. 2011 <br><br>
+                                    - Led a great church growth revival that doubled the attendance of the Lagos church twice within 6 months. Today, the Faith Tabernacle is said to be the largest local church congregation in the world, which runs four services every Sunday with about 38,000 Home cells – May – Oct. 2015 <br><br>
+                                    - By divine instruction, led the planting of over 5,000 churches across Nigeria within one year – 2019 <br><br>
+                                    - By divine signal, led the planting of over 10,000 churches within one year across Nigeria and over 1,200 others across 35 other nations of the world in spite of the restriction by the global lockdown occasioned by covid-19 pandemic. – 2020 <br><br>
+                                    - By divine instruction, led the replication of over 21,000 new home cells within one year at Faith Tabernacle, which represents about a hundred percent of the existing home cells – 2021 <br><br>
+                                    - Led the planting of Churches in 80 additional nations across 4 continents of the world – 2022<br><br>
+                                    - Today the construction of the historic 100,000-seat capacity stadium-like sanctuary, whose foundation was laid on March 25, 2021, is very much in progress, with God's hand clearly evident in the areas of speed, supplies, etc. To God alone be all the glory.
+                                    </p>
+                                </div>
+                                <div class="col-lg-6 p-5 shadow-sm rounded bg-dark" style="background-color:#eee;color: white;">
+                                    <h2 style="font-family: 'Staatliches', cursive;font-size:3rem;text-align:left; color:#fff" class="">Awards and recognitions:</h2>
+                                    <p style="text-align:justify;font-size:large; letter-spacing: 0.1rem;">
+                                    1. Fellow of the Nigerian Academy of Education (FNAE)<br><br>
+                                    2. Award in recognition of Leadership in Enhancing Academic and Research Excellence in Higher Education – Southern University and A&M College, Baton Rouge, LA (2011).<br><br>
+                                    3. Distinguished Award for Excellence in Education, Administration and Leadership – Obafemi Awolowo University, Ile-Ife (2012).<br><br>
+                                    4. Fellow of the Nigerian Society for Financial Research (FNSFR)<br><br>
+                                    5. Fellow of the Nigerian Institute of Strategic Management (FNISM). <br><br>
+                                    6. Honorary Doctor of Divinity – Bethel Graduate School of Theology Riverside California <br><br>
+                                    7. National Honour: A road was named after him by the Federal Government of Nigeria, in the Federal Capital Territory, Abuja (2008).<br><br>
+                                    8. Listed among 100 most reputable people on earth, 2 times running
+                                    </p>
+                                    
+                                    <br><br>
+                                    
+                                    <h2 style="font-family: 'Staatliches', cursive;font-size:3rem;text-align:left; color:#fff" class="">Positions Currently held:</h2>
+                                    <p style="text-align:justify;font-size:large; letter-spacing: 0.1rem;">
+                                    1. Founder and President, Living Faith Church Worldwide aka Winners' Chapel International – 1983 till date <br><br>
+                                    2. President, Word of Faith Bible Institute – 1986 till date <br><br>
+                                    3. President, Dominion Publishing House – 1992 till date <br><br>
+                                    4. Chancellor and Chairman, Board of Regents, Covenant University, Ota, Nigeria – 2002 till date <br><br>
+                                    5. Chancellor and Chairman, Board of Regents, Landmark University, Omuaran, Nigeria – 2011 till date<br><br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-three" style="padding-top:20px;">
+                            <h2>12 PILLARS</h2>
+                            <p>God commissioned the presiding Bishop of this commission with a Word of Faith ministry to our generation. Remember Paul said, "...if the trumpet give an uncertain sound, who shall prepare himself to the battle?" (1 Cor 14:8) As a Commission, we have experienced amazing testimonies ever since this commission was handed down - that is over thirty years now! The Holy Ghost further inspired the servant of God, Dr. David Oyedepo, to classify the Word of Faith He has committed into his hands into the specific areas of emphasis, in direct response to Isaiah 40:6, "The voice said, Cry. And he said, What shall I cry?..." He has named these 12 areas of emphasis as the 12 Pillars of our Commission. We have crossed Jordan into power, bearing the ark of liberation. Here are the 12 stones, after the order of Joshua 4:1-8, 20-24. Having stood firm upon these twelve stones! And they have resulted in breakthroughs - both for the ministry and all that are partakers with us, of the same grace.</p>
 
-    <!-- Leadership -->
-    <section class="leadership section bg-grey">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Leadership</h2>
-                <div class="section-divider"></div>
-                <p>Meet the shepherds of Faith Tabernacle</p>
-            </div>
-            <div class="leadership-grid animate-on-scroll">
-                <div class="leader-card">
-                    <div class="leader-image">
-                        <img src="assets/images/about/leader1.jpg" alt="Senior Pastor">
-                    </div>
-                    <div class="leader-info">
-                        <h3>Rev. John Doe</h3>
-                        <p class="leader-title">Senior Pastor</p>
-                        <p class="leader-bio">Leading Faith Tabernacle with vision, passion and dedication to God's word.</p>
-                        <div class="leader-social">
-                            <a href="#"><i class="ri-facebook-fill"></i></a>
-                            <a href="#"><i class="ri-twitter-fill"></i></a>
-                            <a href="#"><i class="ri-mail-line"></i></a>
+                            <br><br>
+
+                            <p><b>1) FAITH</b><br>
+                            "For whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith." 
+                            (1 John 5:4; Ephesians 6:16)</p>
+                            
+                            <p><b>2) THE WORD</b><br>
+                            "Who being the brightness of his glory, and the express image of his person, and upholding all things by the word of his power..." 
+                            (John 1:1-12; Hebrews 1:3)</p>
+                            
+                            <p><b>3) THE SUPERNATURAL</b><br>
+                            "The wind bloweth where it listeth, and thou hearest the sound thereof, but canst not tell whence it cometh, and whither it goeth: so is every one that is born of the Spirit." 
+                            (Psalm 82:5-7; John 3:8)</p>
+                            
+                            <p><b>4) PRAISE</b><br>
+                            "And when they began to sing and to praise, the Lord set ambushments against the children of Ammon, Moab, and mount Seir, which were come against Judah: and they were smitten." 
+                            (2 Chro. 20:20-22; Psalm 67:1-7; 149:1-9)</p>
+                            
+                            <p><b>5) THE HOLY SPIRIT</b><br>
+                            "And it shall come to pass in that day, that his burden shall be taken away from off thy shoulder, and his yoke from off thy neck, and the yoke shall be destroyed because of the anointing." 
+                            (Acts 1:1-8; Isaiah 10:27)</p>
+                            
+                            <p><b>6) PROSPERITY</b><br>
+                            "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth." 
+                            3 John 2. "Cry yet, saying, Thus saith the Lord of hosts; My cities through prosperity shall yet be spread abroad..." (3 John 2; Psalm 35:27; Zech. 1:17)</p>
+                            
+                            <p><b>7) VISION</b><br>
+                            "Where there is no vision, the people perish: but he that keepeth the law, happy is he." 
+                            (Proverbs 29:18, Jer. 29:11),</p>
+                            
+                            <p><b>8) PRAYER</b><br>
+                            "And this is the confidence that we have in him, that, if we ask anything according to his will, he heareth us." 
+                            (1 John 5:14)</p>
+                            
+                            <p><b>9) HEALING</b><br>
+                            "That it might be fulfilled which was spoken by Esaias the prophet, saying, Himself took our infirmities, and bare our sicknesses." 
+                            (Isaiah 53:3-4; Jer. 8:22; Matt. 8:17)</p>
+                            
+                            <p><b>10) WISDOM</b><br>
+                            "And wisdom and knowledge shall be the stability of thy times, and strength of salvation: the fear of the Lord is his treasure." 
+                            (Prov. 24:3-4, Isaiah 33:6)</p>
+                            
+                            <p><b>11) CONSECRATION</b><br>
+                            "Nevertheless the foundation of God standeth sure, having this seal, the Lord knoweth them that are his. And let every one that nameth the name of Christ depart from iniquity." 
+                            (Hebrews 12:14; 2 Tim. 2:19)</p>
+                            
+                            <p><b>12) SUCCESS</b><br>
+                            "This book of the law shall not depart out of thy mouth; but thou shalt meditate therein day and night, that thou mayest observe to do according to all that is written therein: for then thou shalt make thy way prosperous, and then thou shalt have good success." 
+                            (Joshua 1:8-10)</p>
+                        </div>
+
+                        <div class="content-four" style="padding-top:20px;">
+                            <h2>MISSION STATEMENT</h2>
+                            <p>Our Mandate for ministry was received from the LORD Himself in an 18-hour vision. During this vision, a commission was received from the LORD to liberate mankind in all facets of human existence, to restore broken destinies, and to bring healing to the sick and brokenhearted.</p>
+                            <br>   
+                            <p><b>This was the Divine mandate received from the LORD:</b></p>
+                            <p>"The hour has come to liberate the world from all oppressions of the devil through the preaching of the word of faith, and I am sending you to undertake this task."</p>
+                            <br>   
+                            <p>Today, testimonies of liberation through our messages, books, tapes, magazines and other periodicals are most humbling. The word of faith is working like fire for the liberation of mankind across the nations.</p>
+                            <br><br>
                         </div>
                     </div>
                 </div>
-                <div class="leader-card">
-                    <div class="leader-image">
-                        <img src="assets/images/about/leader2.jpg" alt="Associate Pastor">
-                    </div>
-                    <div class="leader-info">
-                        <h3>Pastor Jane Smith</h3>
-                        <p class="leader-title">Associate Pastor</p>
-                        <p class="leader-bio">Passionate about discipleship, teaching, and nurturing believers in faith.</p>
-                        <div class="leader-social">
-                            <a href="#"><i class="ri-facebook-fill"></i></a>
-                            <a href="#"><i class="ri-twitter-fill"></i></a>
-                            <a href="#"><i class="ri-mail-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="leader-card">
-                    <div class="leader-image">
-                        <img src="assets/images/about/leader3.jpg" alt="Youth Pastor">
-                    </div>
-                    <div class="leader-info">
-                        <h3>Pastor David Johnson</h3>
-                        <p class="leader-title">Youth Pastor</p>
-                        <p class="leader-bio">Empowering the next generation to discover their purpose in Christ.</p>
-                        <div class="leader-social">
-                            <a href="#"><i class="ri-facebook-fill"></i></a>
-                            <a href="#"><i class="ri-twitter-fill"></i></a>
-                            <a href="#"><i class="ri-mail-line"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section section">
-        <div class="container">
-            <div class="stats-grid animate-on-scroll">
-                <div class="stat-item">
-                    <i class="ri-group-line stat-icon"></i>
-                    <div class="stat-number" data-target="2000">0</div>
-                    <div class="stat-label">Members</div>
-                </div>
-                <div class="stat-item">
-                    <i class="ri-building-line stat-icon"></i>
-                    <div class="stat-number" data-target="50">0</div>
-                    <div class="stat-label">Ministries</div>
-                </div>
-                <div class="stat-item">
-                    <i class="ri-calendar-line stat-icon"></i>
-                    <div class="stat-number" data-target="15">0</div>
-                    <div class="stat-label">Years Serving</div>
-                </div>
-                <div class="stat-item">
-                    <i class="ri-earth-line stat-icon"></i>
-                    <div class="stat-number" data-target="5">0</div>
-                    <div class="stat-label">Locations</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section section bg-primary">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Join Our Community</h2>
-                <p>Experience the warmth of fellowship and the power of God's presence</p>
-                <a href="contact.html" class="btn btn-gold btn-lg">Plan Your Visit</a>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-main">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-about">
-                        <div class="footer-logo">
-                            <i class="ri-church-line footer-logo-icon"></i>
-                            <h3>Faith Tabernacle</h3>
-                        </div>
-                        <p>Faith Tabernacle is a Bible-believing church committed to the proclamation of the gospel and the word of faith to the nations of the world.</p>
-                        <div class="footer-social">
-                            <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="ri-twitter-fill"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
-                            <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Quick Links</h4>
-                        <div class="footer-links">
-                            <a href="about.html"><i class="ri-arrow-right-s-line"></i>About Us</a>
-                            <a href="mandate.html"><i class="ri-arrow-right-s-line"></i>The Mandate</a>
-                            <a href="media.html"><i class="ri-arrow-right-s-line"></i>Media Center</a>
-                            <a href="wofbi.html"><i class="ri-arrow-right-s-line"></i>WOFBI</a>
-                            <a href="downloads.html"><i class="ri-arrow-right-s-line"></i>Downloads</a>
-                        </div>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Service Times</h4>
-                        <div class="service-time">
-                            <span>Sunday</span>
-                            <span>7:00 AM & 9:00 AM</span>
-                        </div>
-                        <div class="service-time">
-                            <span>Wednesday</span>
-                            <span>6:00 PM</span>
-                        </div>
-                        <div class="service-time">
-                            <span>Friday</span>
-                            <span>6:00 PM</span>
-                        </div>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Contact Us</h4>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="ri-map-pin-line"></i>
-                            </div>
-                            <div class="footer-contact-info">
-                                <h5>Address</h5>
-                                <p>Km 10, Idiroko Road, Ota, Ogun State, Nigeria</p>
-                            </div>
-                        </div>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="ri-phone-line"></i>
-                            </div>
-                            <div class="footer-contact-info">
-                                <h5>Phone</h5>
-                                <a href="tel:+2348012345678">+234 801 234 5678</a>
-                            </div>
-                        </div>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="ri-mail-line"></i>
-                            </div>
-                            <div class="footer-contact-info">
-                                <h5>Email</h5>
-                                <a href="mailto:info@faithtabernacle.org.ng">info@faithtabernacle.org.ng</a>
-                            </div>
-                        </div>
-                    </div>
+    <div class="base-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    Copyright © <span id="myID"></span> - LIVING FAITH CHURCH WORLDWIDE INTERNATIONAL<br><br>
+                    <center>
+                        <a href="https://www.facebook.com/WinnersWLD/" target="_blank" class="fa fa-facebook"></a> 
+                        <a href="https://twitter.com/WinnersWLD" target="_blank" class="fa fa-twitter"></a>
+                        <a href="https://www.youtube.com/@lfcww" class="fa fa-youtube" target="_blank"></a>
+                        <a href="https://www.instagram.com/davidoyedepomin/" class="fa fa-instagram" target="_blank"></a>
+                    </center>
                 </div>
+                <div class="col-sm-4"></div>
             </div>
         </div>
+    </div>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-bottom-content">
-                    <p>&copy; 2024 Faith Tabernacle. All rights reserved.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="sitemap.xml">Sitemap</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" aria-label="Scroll to Top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/2348012345678" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <i class="ri-whatsapp-line"></i>
-    </a>
-
-    <!-- Scripts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('hidden-menu');
+            menu.classList.toggle('show');
+        }
+
+        function example() {
+            var dateobj = new Date();
+            var dateObject = dateobj.getFullYear();
+            document.getElementById("myID").innerHTML = dateObject;
+        }
+        
+        // Set current year
+        example();
+    </script>
 </body>
 </html>
