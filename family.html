@@ -14,6 +14,167 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/pages.css">
+    <style>
+        .custom-tabs {
+            display: block;
+        }
+
+        .content-one,
+        .content-two,
+        .content-three {	
+            display: none;
+            margin-top: 9px;
+            border-top: 1px solid #ddd;
+        }
+
+        .content-one p,
+        .content-two p,
+        .content-three p {
+            padding: 10px 0 0;
+            margin: 0;
+        }
+
+        .custom-tabs .tab-wrap {	
+            padding: 7px 12px 9px 0;
+        }
+
+        .custom-tabs .tab-wrap .tab-head {
+            vertical-align: middle;
+            cursor: pointer;
+            display: none;	
+        }
+
+        .custom-tabs .tab-wrap .tab-head:checked + .tab-label {
+            border-bottom: 3px solid red;
+        }
+
+        .custom-tabs .tab-wrap #tab1:checked ~ .content-one,
+        .custom-tabs .tab-wrap #tab2:checked ~ .content-two,
+        .custom-tabs .tab-wrap #tab3:checked ~ .content-three {
+            display: block;
+        }
+
+        .custom-tabs .tab-wrap .tab-label {
+            vertical-align: middle;
+            cursor: pointer;
+            padding: 7px 25px;
+            text-align: center;
+        }
+
+        .custom-tabs .tab-wrap .tab-head:checked + .tab-label {
+            border-bottom: 3px solid red;
+            position: relative;
+        }
+
+        .custom-tabs .tab-wrap .tab-label {
+            vertical-align: middle;
+            cursor: pointer;
+            padding: 7px 25px 2px 25px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .custom-tabs .tab-wrap .tab-label {
+                padding: 7px 15px 1px 15px;
+            }
+        }
+
+        /* Footer Styling */
+        .base-area {
+            background: #333333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .base-area .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: white;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .base-area .social-icon i {
+            font-size: 18px;
+            line-height: inherit;
+        }
+
+        .base-area .social-icon:hover {
+            transform: translateY(-2px);
+        }
+
+        .base-area .social-icon:hover .ri-facebook-fill {
+            color: #1877f2;
+        }
+
+        .base-area .social-icon:hover .ri-twitter-fill {
+            color: #1da1f2;
+        }
+
+        .base-area .social-icon:hover .ri-youtube-fill {
+            color: #ff0000;
+        }
+
+        .base-area .social-icon:hover .ri-instagram-fill {
+            color: #e4405f;
+        }
+
+        .base-area .social-icon:hover {
+            background: white;
+            border-color: white;
+        }
+
+        /* Card styling for accordion */
+        .card {
+            border: 1px solid #e3e6f0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e3e6f0;
+            padding: 0;
+        }
+
+        .card-link {
+            display: block;
+            padding: 15px 20px;
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            color: #b91c1c;
+            text-decoration: none;
+            background: #fff5f5;
+        }
+
+        .card-body {
+            padding: 20px;
+            background: white;
+        }
+
+        .collapse.show {
+            display: block;
+        }
+
+        .collapse {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header class="landing-header" aria-label="Faith Tabernacle identity">
@@ -59,156 +220,143 @@
         </div>
     </section>
 
-    <section class="section">
+    <div class="content-area" style="padding-top: 60px;">
         <div class="container">
-            <div class="section-title">
-                <h2>Building Strong Christian Families</h2>
-                <div class="section-divider"></div>
-                <p>Strengthening marriages and nurturing godly homes</p>
-            </div>
-            <div class="about-intro-grid animate-on-scroll">
-                <div class="about-intro-image">
-                    <img src="assets/images/family/family-worship.jpg" alt="Christian Family">
-                </div>
-                <div class="about-intro-text">
-                    <h3>Our Family Ministry</h3>
-                    <p>The Christian Family Ministry at Faith Tabernacle is dedicated to strengthening marriages, nurturing children, and building godly homes based on biblical principles.</p>
-                    <p>We believe that strong families are the foundation of a healthy church and society. Through our programs, we provide practical tools, biblical teaching, and supportive community for families at every stage.</p>
-                    <p>Join us in creating homes that reflect God's love, grace, and purpose.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="row">
+                <p>Welcome to the <strong>Christian Family column</strong> of the David Oyedepo Ministries international website. This page is anchored by Pastor (Mrs) Faith Abiola Oyedepo, and articles on this column will centre on: <strong>Family life, Family matters, Family success</strong> Whether single or married, you will be empowered and equipped via the topical and realistic issues discussed within these articles. With biblical, personal and other reliable and vetted testimonies cited from the body of Christ, you will be taught to replicate same testimonies in your own life. Get set for definite encounters that will culminate in your ever-victorious family life!</p>
+                
+                <div class="custom-tabs">
+                    <div class="tab-wrap">
+                        <input class="tab-head" id="tab1" type="radio" name="tabs" checked>
+                        <label class="tab-label" for="tab1">FAMILY LIFE</label>
+                        
+                        <input class="tab-head" id="tab2" type="radio" name="tabs">
+                        <label class="tab-label" for="tab2">FAMILY MATTERS</label>
+                        
+                        <input class="tab-head" id="tab3" type="radio" name="tabs">
+                        <label class="tab-label" for="tab3">FAMILY SUCCESS</label>
+                        
+                        <div class="content-one" style="padding-top:20px;">
+                            <h2>FAMILY LIFE</h2>
+                            
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                            BECOMING ONE FLESH
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p align="justify">Dear Reader,<br><br>
+                                                I welcome you to another glorious month. I am glad to bring God's Word to you again and my prayer is that the Word will work wonders in your family life as you receive it today in Jesus name. All through this month, I shall be teaching on the topic, Becoming one flesh.<br><br>
 
-    <section class="section bg-grey">
-        <div class="container">
-            <div class="section-title">
-                <h2>Family Programs</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="values-grid animate-on-scroll">
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-heart-3-line"></i></div>
-                    <h4>Marriage Enrichment</h4>
-                    <p>Workshops and seminars for building stronger, more fulfilling marriages.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-parent-line"></i></div>
-                    <h4>Parenting Classes</h4>
-                    <p>Biblical principles for raising godly children in today's world.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-home-heart-line"></i></div>
-                    <h4>Family Counseling</h4>
-                    <p>Professional Christian counseling for families facing challenges.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-calendar-event-line"></i></div>
-                    <h4>Family Events</h4>
-                    <p>Regular activities and retreats for families to bond and grow together.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-book-read-line"></i></div>
-                    <h4>Family Devotions</h4>
-                    <p>Resources and guides for meaningful family worship and Bible study.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-service-line"></i></div>
-                    <h4>Support Groups</h4>
-                    <p>Small groups for mutual encouragement and prayer support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                                                Marriage is a mystery of two people becoming one. God programmed marriage to be two in one. It is His will for you. When you understand this truth, it will help you a great deal to work towards a successful home. God has created all that it would take to make marriage glorious. Man on his own part needs to abide by His principle and implement His plan.<br><br>
+                                                
+                                                For more insight, these books authored by me are available at the Dominion Bookstores in all Living Faith Churches and other leading Christian bookstores: Marriage Covenant, Making Marriage Work, Building a Successful Home and Success in Marriage (Co-Authored).
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                            SECRETS OF A SUCCESSFUL FAMILY LIFE
+                                        </a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p align="justify">Dear Reader,<br><br>
 
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Family Resources</h2>
-                <div class="section-divider"></div>
-                <p>Tools to help your family thrive</p>
-            </div>
-            <div class="mission-vision-grid animate-on-scroll">
-                <div class="mission-card">
-                    <div class="mission-icon"><i class="ri-article-line"></i></div>
-                    <h3>Articles & Guides</h3>
-                    <p>Practical articles on marriage, parenting, and family life from a biblical perspective.</p>
-                </div>
-                <div class="vision-card">
-                    <div class="vision-icon"><i class="ri-video-line"></i></div>
-                    <h3>Video Teachings</h3>
-                    <p>Access our library of family-focused teachings and seminars.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                                                I warmly welcome you to another great time in the study of God's Word. All through this month, we shall be considering the secrets that make for a successful family life. my prayer is that your eyes of understanding shall be opened to catch this truth from God's Word in Jesus name.<br><br>
 
-    <section class="cta-section bg-primary">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Join Our Family Ministry</h2>
-                <p>Connect with other families and grow together in faith</p>
-                <a href="contact.html" class="btn btn-gold btn-lg">Get Involved</a>
-            </div>
-        </div>
-    </section>
+                                                It is important for us to understand what marriage is all about. Many people, including Christians, have a misconception about marriage. Some think that it is just the coming together of a man and a woman and their bearing children that is marriage. Some others think that it is a kind of friendship or relationship.<br><br>
 
-    <footer class="footer">
-        <div class="footer-main">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-about">
-                        <div class="footer-logo">
-                            <i class="ri-church-line footer-logo-icon"></i>
-                            <h3>Faith Tabernacle</h3>
-                        </div>
-                        <p>Faith Tabernacle is a Bible-believing church committed to the proclamation of the gospel and the word of faith to the nations of the world.</p>
-                        <div class="footer-social">
-                            <a href="#"><i class="ri-facebook-fill"></i></a>
-                            <a href="#"><i class="ri-twitter-fill"></i></a>
-                            <a href="#"><i class="ri-instagram-fill"></i></a>
-                            <a href="#"><i class="ri-youtube-fill"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Quick Links</h4>
-                        <div class="footer-links">
-                            <a href="about.html"><i class="ri-arrow-right-s-line"></i>About Us</a>
-                            <a href="mandate.html"><i class="ri-arrow-right-s-line"></i>The Mandate</a>
-                            <a href="media.html"><i class="ri-arrow-right-s-line"></i>Media Center</a>
-                            <a href="wofbi.html"><i class="ri-arrow-right-s-line"></i>WOFBI</a>
-                        </div>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Service Times</h4>
-                        <div class="service-time"><span>Sunday</span><span>7:00 AM & 9:00 AM</span></div>
-                        <div class="service-time"><span>Wednesday</span><span>6:00 PM</span></div>
-                        <div class="service-time"><span>Friday</span><span>6:00 PM</span></div>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Contact Us</h4>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon"><i class="ri-map-pin-line"></i></div>
-                            <div class="footer-contact-info">
-                                <h5>Address</h5>
-                                <p>Km 10, Idiroko Road, Ota, Ogun State, Nigeria</p>
+                                                Scripturally, marriage is a covenant and until you have this understanding, you may never enjoy fulfilment in your family. Marriage is a covenant between God and the couple, in the first instance, and then between the couple themselves. So, when you are entering into a marriage relationship, it is important for you to know that you are entering into a covenant with God and with your spouse. Malachi 2:14 says: Because the LORD hath been witness between thee and … the wife of thy covenant.<br><br>
+
+                                                What is a covenant? A covenant is an agreement between two people. It is a relationship that must not be broken and if it is ever broken, a penalty follows suit. A covenant is also for a lifetime and I believe strongly that it is because a covenant is for a lifetime that the Word of God says in Ecclesiastes 10:8: He that breaketh the edge, a serpent shall bite him. A promise can be claimed, but a covenant cannot. In a covenant, you have to abide with some rules and regulations and as you do these you enjoy the benefits it contains. When you walk in terms with the covenant, God fulfils His own part of the covenant.<br><br>
+
+                                                Success in marriage is not a function of prayers. It is basically, a function of walking in the terms of the covenant. The only place prayer is needed is for divine grace to walk in line with the demands of the covenant. Prayer can never take the place of obedience to the terms of the covenant. Therefore, instead of going from place to place seeking solution to the problems of your family, settle down for knowledge of your covenant responsibility and stay committed to its fulfilment thereof. It is in the doing of that covenant responsibility, that your desire lies.<br><br>
+
+                                                The marriage covenant is best described as a triangle, with God on top or at the apex, and the man and his wife at the bottom or the base, everyone playing their part independently … As unto the Lord. (Ephesians 5:22). God created you and made you a part of that family for a purpose and you will be accountable to Him for the fulfilment of that purpose. Husband and wife have covenant obligations to each other for which they will also be held accountable. Your responsibility to obey the terms of the covenant is not dependant on your spouse fulfilling his or her own part. As far as God is concerned, you have been given an individual responsibility and you must be accountable to Him for its fulfilment.<br><br>
+
+                                                The failure on the part of your spouse for the non-performance of his or her responsibility is not a sufficient excuse for the non-performance of yours. For instance, as a man, you cannot say the failure of your wife to submit to your headship is the reason you cannot love her. The same goes for the woman; whether your husband loves you or not, you are under an obligation to submit to him in everything. When you fulfil your own part of the covenant, God will also fulfil His own part which is to give you peace, joy, fulfilment and every good thing you desire in your family. God is constant; His side is stable; He doesn't change (Malachi 3:6); He is the same yesterday, today and forever (Hebrews 13:8). He will do whatever He says He will do. What does that mean? Whatever good you see God do for any family, He can do the very same thing for you because He is no respecter of persons. If he has to change your spouse in response to your obedience, he will do it.<br><br>
+
+                                                The Bible says: The king's heart is in the hand of the LORD, as the rivers of water: he turneth it whithersoever he will (Proverbs 21:1). The turning of your spouse's heart is but a light thing with the Lord for with Him nothing shall be impossible. You just concentrate on pleasing Him by your obedience to His command and He will please you by the fulfilment of His part of the covenant.<br><br>
+
+                                                When your covenant relationship with God is in place, your covenant relationship with your spouse becomes a very easy thing to observe. If you get committed to obeying the Lord, by either loving your wife or submitting to your husband, you will find out that it becomes a thing of joy for you to do. It becomes a delight to show love or submit. It is no longer mechanical but spontaneous, and all that could ever be desired in a home becomes cheaply yours.<br><br>
+
+                                                God is a God of covenant and the benefits of the covenant are only available to those who have a covenant relationship with Him. He said in his Word: Gather my saints together unto me; those that have made a covenant with me by sacrifice Psalms 50:5. You can become a part of those in covenant with Him by praying this simple prayer with me inviting Jesus Christ into your heart as your Lord and personal Saviour: Dear Lord Jesus Christ, I come to You today. I am a sinner. Forgive me my sins and cleanse me with Your Blood. I accept You as my Lord and personal Saviour. Make me a child of God today. Thank You for delivering me from sin and satan to serve the living God and thank You for accepting me into Your Kingdom.<br><br>
+
+                                                Congratulations! If you prayed this simple prayer of faith with me, you are now born again and a child of God. He loves you and will never leave you. Read your Bible daily, obey God's Word and seek Christian fellowship (John 14:21).<br><br>
+
+                                                With this, you are guaranteed all-round rest and peace in Jesus' Name! Call or write to share your testimonies with me through oyedepofaitha@gmail.com, 07026385437 OR 08141320204.<br><br>
+
+                                                For more insight, these books authored by me are available at the Dominion Bookstores in all Living Faith Churches and other leading Christian bookstores: Marriage Covenant, Making Marriage Work, Building a Successful Home and Success in Marriage (Co-Authored).
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="content-two" style="padding-top:20px;">
+                            <h2>FAMILY MATTERS</h2>
+                            <p>Content for Family Matters section will be added here.</p>
+                        </div>
+
+                        <div class="content-three" style="padding-top:20px;">
+                            <h2>FAMILY SUCCESS</h2>
+                            <p>Content for Family Success section will be added here.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-bottom-content">
-                    <p>&copy; 2024 Faith Tabernacle. All rights reserved.</p>
+    </div>
+
+
+
+    <!-- Footer -->
+    <div class="base-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    Copyright © <span id="myID"></span> - LIVING FAITH CHURCH WORLDWIDE INTERNATIONAL<br><br>
+                    <center>
+                        <a href="https://www.facebook.com/WinnersWLD/" target="_blank" class="social-icon">
+                            <i class="ri-facebook-fill"></i>
+                        </a> 
+                        <a href="https://twitter.com/WinnersWLD" target="_blank" class="social-icon">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@lfcww" target="_blank" class="social-icon">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/davidoyedepomin/" target="_blank" class="social-icon">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </center>
                 </div>
+                <div class="col-sm-4"></div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <button class="scroll-top"><i class="ri-arrow-up-line"></i></button>
-    <a href="https://wa.me/2348012345678" class="whatsapp-btn" target="_blank"><i class="ri-whatsapp-line"></i></a>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        function example() {
+            var dateobj = new Date();
+            var dateObject = dateobj.getFullYear();
+            document.getElementById("myID").innerHTML = dateObject;
+        }
+        
+        // Set current year
+        example();
+    </script>
 </body>
 </html>
