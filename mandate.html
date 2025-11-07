@@ -46,185 +46,453 @@
         <div class="mobile-menu-overlay"></div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="page-hero-overlay"></div>
-        <div class="container">
-            <div class="page-hero-content">
-                <h1 class="page-title">The Mandate</h1>
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a>
-                    <i class="ri-arrow-right-s-line"></i>
-                    <span>The Mandate</span>
+    <!-- Mandate Page Content -->
+    <main class="mandate-page">
+        <div class="mandate-container">
+            <div class="mandate-card">
+                <div class="mandate-logo">
+                    <img src="assets/images/logo-lfc.svg" alt="Living Faith Church Worldwide logo">
+                </div>
+                <h1 class="mandate-title">LIVING FAITH CHURCH WORLDWIDE</h1>
+                <div class="mandate-message">
+                    <p>"Now the hour has come to liberate the world from all oppressions of the devil through the preaching of the word of faith, and I am sending you to undertake this task."</p>
+                </div>
+                <div class="mandate-instruction">
+                    <p>To continue please select one of the buttons below:</p>
+                </div>
+                <div class="mandate-buttons">
+                    <button class="mandate-btn home-mission-btn">Home Mission</button>
+                    <button class="mandate-btn foreign-mission-btn">Foreign Mission</button>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Mandate Content -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Divine Mandate</h2>
-                <div class="section-divider"></div>
-                <p>The commission God has given us</p>
-            </div>
-            <div class="about-intro-grid animate-on-scroll">
-                <div class="about-intro-text">
-                    <h3>To Liberate the World Through the Word</h3>
-                    <p>Faith Tabernacle is founded on the divine mandate to liberate people from all oppressions of the devil through the preaching of the word of faith. This mandate is derived from our Lord Jesus Christ's commission to His disciples.</p>
-                    <p>We are called to take the gospel to every nation, making disciples and teaching them to observe all things commanded by Christ. This mandate drives everything we do, from our worship services to our outreach programs.</p>
-                    <p>Through the power of God's word, we have witnessed countless lives transformed, families restored, and communities impacted. This is not just our mission—it is our divine calling and purpose.</p>
-                </div>
-                <div class="about-intro-image">
-                    <img src="assets/images/mandate/mandate-hero.jpg" alt="The Mandate">
-                </div>
-            </div>
-        </div>
-    </section>
+    <style>
+        .mandate-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
 
-    <!-- Scripture Foundation -->
-    <section class="section bg-grey">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Biblical Foundation</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="values-grid animate-on-scroll">
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-book-open-line"></i></div>
-                    <h4>Matthew 28:19-20</h4>
-                    <p>"Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, teaching them to observe all things I have commanded you."</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-book-open-line"></i></div>
-                    <h4>Mark 16:15</h4>
-                    <p>"Go into all the world and preach the gospel to every creature."</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="ri-book-open-line"></i></div>
-                    <h4>Luke 4:18</h4>
-                    <p>"The Spirit of the Lord is upon Me, because He has anointed Me to preach the gospel to the poor; He has sent Me to heal the brokenhearted, to proclaim liberty to the captives."</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        .mandate-container {
+            width: 100%;
+            max-width: 480px;
+        }
 
-    <!-- Core Pillars -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Pillars of Our Mandate</h2>
-                <div class="section-divider"></div>
-                <p>The foundational elements of our calling</p>
-            </div>
-            <div class="mission-vision-grid animate-on-scroll">
-                <div class="mission-card">
-                    <div class="mission-icon"><i class="ri-broadcast-line"></i></div>
-                    <h3>Evangelism</h3>
-                    <p>Taking the gospel to the unreached, winning souls for Christ, and expanding the Kingdom of God on earth.</p>
-                </div>
-                <div class="vision-card">
-                    <div class="vision-icon"><i class="ri-graduation-cap-line"></i></div>
-                    <h3>Discipleship</h3>
-                    <p>Building believers through systematic teaching of God's word and raising spiritual champions.</p>
-                </div>
-            </div>
-            <div class="mission-vision-grid animate-on-scroll mt-3">
-                <div class="vision-card">
-                    <div class="vision-icon"><i class="ri-hand-heart-line"></i></div>
-                    <h3>Service</h3>
-                    <p>Demonstrating Christ's love through practical acts of service and compassion to our community.</p>
-                </div>
-                <div class="mission-card">
-                    <div class="mission-icon"><i class="ri-earth-line"></i></div>
-                    <h3>Global Impact</h3>
-                    <p>Extending our reach to nations, cultures, and peoples across the world with the message of hope.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        .mandate-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
 
-    <!-- CTA -->
-    <section class="cta-section bg-primary">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Join Us in Fulfilling the Mandate</h2>
-                <p>Be part of this divine commission to transform lives and nations</p>
-                <a href="contact.html" class="btn btn-gold btn-lg">Get Involved</a>
-            </div>
-        </div>
-    </section>
+        .mandate-logo {
+            margin-bottom: 1rem;
+        }
 
-    <!-- Footer (same as homepage) -->
-    <footer class="footer">
-        <div class="footer-main">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-about">
-                        <div class="footer-logo">
-                            <i class="ri-church-line footer-logo-icon"></i>
-                            <h3>Faith Tabernacle</h3>
-                        </div>
-                        <p>Faith Tabernacle is a Bible-believing church committed to the proclamation of the gospel and the word of faith to the nations of the world.</p>
-                        <div class="footer-social">
-                            <a href="#"><i class="ri-facebook-fill"></i></a>
-                            <a href="#"><i class="ri-twitter-fill"></i></a>
-                            <a href="#"><i class="ri-instagram-fill"></i></a>
-                            <a href="#"><i class="ri-youtube-fill"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Quick Links</h4>
-                        <div class="footer-links">
-                            <a href="about.html"><i class="ri-arrow-right-s-line"></i>About Us</a>
-                            <a href="mandate.html"><i class="ri-arrow-right-s-line"></i>The Mandate</a>
-                            <a href="media.html"><i class="ri-arrow-right-s-line"></i>Media Center</a>
-                            <a href="wofbi.html"><i class="ri-arrow-right-s-line"></i>WOFBI</a>
-                            <a href="downloads.html"><i class="ri-arrow-right-s-line"></i>Downloads</a>
-                        </div>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Service Times</h4>
-                        <div class="service-time"><span>Sunday</span><span>7:00 AM & 9:00 AM</span></div>
-                        <div class="service-time"><span>Wednesday</span><span>6:00 PM</span></div>
-                        <div class="service-time"><span>Friday</span><span>6:00 PM</span></div>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Contact Us</h4>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon"><i class="ri-map-pin-line"></i></div>
-                            <div class="footer-contact-info">
-                                <h5>Address</h5>
-                                <p>Km 10, Idiroko Road, Ota, Ogun State, Nigeria</p>
-                            </div>
-                        </div>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon"><i class="ri-phone-line"></i></div>
-                            <div class="footer-contact-info">
-                                <h5>Phone</h5>
-                                <a href="tel:+2348012345678">+234 801 234 5678</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-bottom-content">
-                    <p>&copy; 2024 Faith Tabernacle. All rights reserved.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+        .mandate-logo img {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
 
-    <button class="scroll-top"><i class="ri-arrow-up-line"></i></button>
-    <a href="https://wa.me/2348012345678" class="whatsapp-btn" target="_blank"><i class="ri-whatsapp-line"></i></a>
-    <script src="assets/js/main.js"></script>
+        .mandate-title {
+            font-family: var(--font-primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+        }
+
+        .mandate-message {
+            margin-bottom: 1.5rem;
+        }
+
+        .mandate-message p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .mandate-instruction {
+            margin-bottom: 1.8rem;
+        }
+
+        .mandate-instruction p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0;
+        }
+
+        .mandate-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .mandate-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #dc2626;
+            background: transparent;
+            color: #dc2626;
+            font-family: var(--font-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 140px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .mandate-btn:hover {
+            background: #dc2626;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(220, 38, 38, 0.3);
+        }
+
+        .mandate-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .mandate-page {
+                padding: 1rem;
+            }
+
+            .mandate-container {
+                max-width: 100%;
+            }
+
+            .mandate-card {
+                padding: 1.8rem 1.5rem;
+                border-radius: 12px;
+                margin: 0;
+            }
+
+            .mandate-logo img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .mandate-title {
+                font-size: 1.1rem;
+                line-height: 1.2;
+                margin-bottom: 1.2rem;
+            }
+
+            .mandate-message p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            .mandate-instruction p {
+                font-size: 0.85rem;
+            }
+
+            .mandate-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .mandate-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 0.9rem 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+    <!-- Modal for Home Mission (Phone Number) -->
+    <div class="modal-overlay" id="homeMissionModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('homeMissionModal')">&times;</button>
+            <h3 class="modal-title">Enter your Phone Number:</h3>
+            <p class="modal-description">Please enter a valid phone number with eleven digits e.g. 07012345678 to generate a one time password for easy access</p>
+            <div class="input-group">
+                <select class="country-code">
+                    <option value="+234">+234</option>
+                </select>
+                <input type="tel" class="phone-input" placeholder="Type your phone number here">
+            </div>
+            <button class="modal-btn send-otp-btn">Send OTP</button>
+        </div>
+    </div>
+
+    <!-- Modal for Foreign Mission (Email) -->
+    <div class="modal-overlay" id="foreignMissionModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('foreignMissionModal')">&times;</button>
+            <h3 class="modal-title">Enter your Email Address:</h3>
+            <p class="modal-description">Please enter a valid email address e.g. yourname@gmail.com to generate a one time password for easy access</p>
+            <div class="input-group">
+                <input type="email" class="email-input" placeholder="Type your email address here">
+            </div>
+            <button class="modal-btn send-otp-btn">Send OTP</button>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #9ca3af;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #374151;
+        }
+
+        .modal-title {
+            font-family: var(--font-primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .modal-description {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .country-code {
+            padding: 0.8rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background: white;
+            min-width: 80px;
+        }
+
+        .phone-input,
+        .email-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .phone-input:focus,
+        .email-input:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+        }
+
+        .phone-input::placeholder,
+        .email-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .modal-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            background: #b91c1c;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 1.8rem 1.5rem;
+                margin: 1rem;
+                border-radius: 8px;
+                max-width: 95%;
+            }
+
+            .modal-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .modal-description {
+                font-size: 0.85rem;
+                margin-bottom: 1.2rem;
+                line-height: 1.4;
+            }
+
+            .input-group {
+                margin-bottom: 1.2rem;
+            }
+
+            .country-code {
+                padding: 0.9rem;
+                font-size: 0.85rem;
+                border-radius: 4px;
+            }
+
+            .phone-input,
+            .email-input {
+                padding: 0.9rem;
+                font-size: 0.85rem;
+                border-radius: 4px;
+            }
+
+            .modal-btn {
+                padding: 0.9rem 2.5rem;
+                font-size: 0.85rem;
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mandate-page {
+                padding: 0.5rem;
+            }
+
+            .mandate-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .mandate-title {
+                font-size: 1rem;
+            }
+
+            .mandate-message p {
+                font-size: 0.75rem;
+            }
+
+            .mandate-instruction p {
+                font-size: 0.8rem;
+            }
+
+            .mandate-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem 1.2rem;
+                margin: 0.5rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Add click handlers for the mission buttons
+        document.querySelector('.home-mission-btn').addEventListener('click', function() {
+            openModal('homeMissionModal');
+        });
+
+        document.querySelector('.foreign-mission-btn').addEventListener('click', function() {
+            openModal('foreignMissionModal');
+        });
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+
+        // Handle OTP sending
+        document.querySelectorAll('.send-otp-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal-overlay');
+                const phoneInput = modal.querySelector('.phone-input');
+                const emailInput = modal.querySelector('.email-input');
+                
+                if (phoneInput) {
+                    const phoneNumber = phoneInput.value;
+                    if (phoneNumber) {
+                        alert(`OTP sent to: +234${phoneNumber}`);
+                    } else {
+                        alert('Please enter a valid phone number');
+                    }
+                } else if (emailInput) {
+                    const email = emailInput.value;
+                    if (email) {
+                        alert(`OTP sent to: ${email}`);
+                    } else {
+                        alert('Please enter a valid email address');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
