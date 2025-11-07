@@ -93,145 +93,165 @@
             text-align: center;
         }
 
-        .banner-area {
-            background: url('assets/images/about/section-bg-101.jpg') no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            min-height: 300px;
+        /* Header at the top of page with transparent background */
+        .landing-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            padding: 15px 0;
         }
 
-        .top-menu {
-            display: none;
+        .landing-header .container-fluid {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 15px;
         }
 
-        .top {
-            padding: 10px 0;
-        }
-
-        .brand {
+        .landing-header .row {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0;
         }
 
-        .brand a {
-            color: #333;
+        .landing-header .brand {
+            flex-shrink: 0;
+        }
+
+        .landing-header .brand a {
+            color: white;
             text-decoration: none;
             display: flex;
             align-items: center;
         }
 
-        #logo-holder img {
-            width: 50px;
+        .landing-header #logo-holder img {
+            width: 40px;
             height: auto;
-            margin-right: 15px;
+            margin-right: 10px;
         }
 
-        #title-holder {
-            color: #333;
+        .landing-header #title-holder {
+            color: white;
             font-weight: bold;
+            font-size: 14px;
             line-height: 1.2;
+            white-space: nowrap;
         }
 
-        #menu-holder {
+        .landing-header #menu-holder {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: flex-end;
             align-items: center;
+            flex-wrap: nowrap;
         }
 
-        #menu-holder li {
-            margin: 0 10px;
+        .landing-header #menu-holder li {
+            margin: 0 8px;
+            white-space: nowrap;
         }
 
-        #menu-holder a {
-            color: #333;
+        .landing-header #menu-holder a {
+            color: white;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+            display: inline-block;
         }
 
-        .base-area {
-            background: #333;
+        .landing-header #menu-holder a:hover {
+            color: #dc2626;
+        }
+
+        /* Mobile header */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: rgba(220, 38, 38, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            display: none;
+        }
+
+        .mobile-header .menu-title {
             color: white;
-            padding: 40px 0;
-            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .mobile-header ul {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+
+        .mobile-header ul.show {
+            display: block;
+        }
+
+        .mobile-header li {
+            padding: 8px 0;
+        }
+
+        .mobile-header a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .banner-area {
+            background: url('assets/images/hero/faithtabernacle-hero.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            min-height: 40vh;
+            padding-top: 80px;
+        }
+
+        .content-area {
+            margin-top: 0;
         }
 
         @media (max-width: 768px) {
-            .top-menu {
-                display: block;
-                background: #dc2626;
-                padding: 1rem;
-            }
-
-            .menu-title {
-                color: white;
-                font-weight: bold;
-                cursor: pointer;
-            }
-
-            .top-menu ul {
+            .landing-header {
                 display: none;
-                list-style: none;
-                padding: 0;
-                margin: 10px 0 0 0;
             }
 
-            .top-menu ul.show {
+            .mobile-header {
                 display: block;
             }
 
-            .top-menu li {
-                padding: 5px 0;
-            }
-
-            .top-menu a {
-                color: white;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .top {
-                display: none;
-            }
-
-            #menu-holder {
-                display: none;
+            .banner-area {
+                padding-top: 60px;
+                min-height: 50vh;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Mobile Menu -->
-    <div class="top-menu">
-        <div class="menu-title" onclick="toggleMobileMenu()">
-            MENU <i></i>
-        </div>
-        <ul class="menu" id="hidden-menu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">about us</a></li>
-            <li><a href="mandate.html">the mandate</a></li>
-            <li><a href="https://mediacenter.faithtabernacle.org.ng/stream/live" target="_blank">media center</a></li>
-            <li><a href="https://wofbi.lfcww.org/" target="_blank">Wofbi</a></li>
-            <li><a href="family.html">Christian Family</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="education.html">education</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="give.html">Give Online</a></li>
-        </ul>
-    </div>
-
-    <!-- Desktop Header -->
-    <div class="top">
+    <!-- Fixed Header at Top -->
+    <header class="landing-header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4 col-xs-4 brand">
-                    <a href="index.html" style="float: left; width: 100%;">
+                    <a href="index.html">
                         <span id="logo-holder"><img src="assets/images/logo-lfc.svg" alt="Living Faith Church Logo"></span>
                         <span id="title-holder">Living Faith<br>Church Worldwide<br>International</span>
                     </a>
@@ -252,14 +272,29 @@
                 </div>
             </div>
         </div>
-    </div>
+    </header>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="menu-title" onclick="toggleMobileMenu()">
+            MENU <i></i>
+        </div>
+        <ul class="menu" id="hidden-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">about us</a></li>
+            <li><a href="mandate.html">the mandate</a></li>
+            <li><a href="https://mediacenter.faithtabernacle.org.ng/stream/live" target="_blank">media center</a></li>
+            <li><a href="https://wofbi.lfcww.org/" target="_blank">Wofbi</a></li>
+            <li><a href="family.html">Christian Family</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="education.html">education</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="give.html">Give Online</a></li>
+        </ul>
+    </header>
 
     <!-- Banner -->
-    <div class="banner-area banner-big" style="background: url('assets/images/about/section-bg-101.jpg') no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;min-height: 300px;">
+    <div class="banner-area">
     </div>
 
     <!-- Content Area -->
