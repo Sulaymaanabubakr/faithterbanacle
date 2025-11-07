@@ -32,18 +32,20 @@
     // ===================================
     // Sticky Header on Scroll
     // ===================================
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        lastScroll = currentScroll;
-    });
+    if (header) {
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    }
 
     // ===================================
     // Mobile Menu Toggle
@@ -51,8 +53,10 @@
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
-            nav.classList.toggle('active');
-            body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+            if (nav) {
+                nav.classList.toggle('active');
+                body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+            }
         });
     }
 
@@ -93,7 +97,7 @@
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const headerHeight = header.offsetHeight;
+                    const headerHeight = header ? header.offsetHeight : 0;
                     const targetPosition = target.offsetTop - headerHeight;
                     window.scrollTo({
                         top: targetPosition,
@@ -252,7 +256,7 @@
     // Close Mobile Menu on Outside Click
     // ===================================
     document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 768 && nav && menuToggle) {
             if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
                 if (nav.classList.contains('active')) {
                     menuToggle.classList.remove('active');

@@ -1,87 +1,151 @@
 /* ===================================
-   Hero Slider Functionality
+   Immersive Hero Slider Functionality
    =================================== */
 
 (function() {
     'use strict';
 
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    let currentSlide = 0;
-    let slideInterval;
+    const slider = document.querySelector('.landing-slider');
+    if (!slider) {
+        return;
+    }
 
-    // Initialize slider
-    function initSlider() {
-        if (slides.length === 0) return;
+    const slides = Array.from(slider.querySelectorAll('.slider-slide'));
+    if (!slides.length) {
+        return;
+    }
 
-        // Start auto-sliding
-        startSlider();
+    const prevButton = slider.querySelector('.slider-arrow--prev');
+    const nextButton = slider.querySelector('.slider-arrow--next');
+    const autoplayDelay = Number(slider.dataset.autoplay) || 0;
 
-        // Add click event to dots
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                resetInterval();
-            });
+    let currentIndex = slides.findIndex(slide => slide.classList.contains('is-active'));
+    if (currentIndex === -1) {
+        currentIndex = 0;
+    }
+
+    let autoplayTimer = null;
+    const hasAutoplay = autoplayDelay > 0;
+
+    goToSlide(currentIndex, true);
+
+    if (hasAutoplay) {
+        autoplayTimer = startAutoplay();
+        slider.addEventListener('focusin', pauseAutoplay);
+        slider.addEventListener('focusout', () => {
+            // Delay restart slightly to prevent flicker when tabbing through CTA buttons
+            window.setTimeout(resetAutoplay, 150);
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                pauseAutoplay();
+            } else {
+                resetAutoplay();
+            }
         });
     }
 
-    // Go to specific slide
-    function goToSlide(n) {
-        slides[currentSlide].classList.remove('active');
-        dots[currentSlide].classList.remove('active');
-        
-        currentSlide = n;
-        
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+            resetAutoplay();
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+            resetAutoplay();
+        });
+    }
+
+    slider.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            goToSlide(currentIndex - 1);
+            resetAutoplay();
+        } else if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            goToSlide(currentIndex + 1);
+            resetAutoplay();
         }
-        if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
+    });
+
+    let touchStartX = null;
+    let touchStartTime = 0;
+
+    slider.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1) {
+            return;
         }
-        
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
 
-    // Next slide
-    function nextSlide() {
-        goToSlide(currentSlide + 1);
-    }
+        touchStartX = event.touches[0].clientX;
+        touchStartTime = Date.now();
+        pauseAutoplay();
+    }, { passive: true });
 
-    // Previous slide
-    function prevSlide() {
-        goToSlide(currentSlide - 1);
-    }
+    slider.addEventListener('touchend', (event) => {
+        if (touchStartX === null) {
+            return;
+        }
 
-    // Start auto-sliding
-    function startSlider() {
-        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-    }
+        const deltaX = event.changedTouches[0].clientX - touchStartX;
+        const deltaTime = Date.now() - touchStartTime;
 
-    // Reset interval
-    function resetInterval() {
-        clearInterval(slideInterval);
-        startSlider();
-    }
+        if (Math.abs(deltaX) > 60 && deltaTime < 800) {
+            if (deltaX > 0) {
+                goToSlide(currentIndex - 1);
+            } else {
+                goToSlide(currentIndex + 1);
+            }
+        }
 
-    // Pause slider on hover
-    const heroSlider = document.querySelector('.hero-slider');
-    if (heroSlider) {
-        heroSlider.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
+        touchStartX = null;
+        touchStartTime = 0;
+        resetAutoplay();
+    });
+
+    function goToSlide(targetIndex, initial = false) {
+        const totalSlides = slides.length;
+        const normalizedIndex = ((targetIndex % totalSlides) + totalSlides) % totalSlides;
+
+        slides.forEach((slide, index) => {
+            const isActive = index === normalizedIndex;
+            slide.classList.toggle('is-active', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
         });
 
-        heroSlider.addEventListener('mouseleave', () => {
-            startSlider();
-        });
+        currentIndex = normalizedIndex;
+
+        if (!initial) {
+            slider.dispatchEvent(new CustomEvent('sliderchange', {
+                detail: { index: currentIndex }
+            }));
+        }
     }
 
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSlider);
-    } else {
-        initSlider();
+    function startAutoplay() {
+        if (!hasAutoplay) {
+            return null;
+        }
+        return window.setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, autoplayDelay);
+    }
+
+    function pauseAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    function resetAutoplay() {
+        if (!hasAutoplay) {
+            return;
+        }
+        pauseAutoplay();
+        autoplayTimer = startAutoplay();
     }
 
 })();
