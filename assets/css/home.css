@@ -518,30 +518,32 @@ body {
         left: 50%;
         transform: translateX(-50%);
         width: calc(100% - clamp(1rem, 10vw, 3rem));
-        padding: 0.65rem 0.8rem;
+        padding: 0.6rem 0.75rem;
         background: rgba(8, 0, 0, 0.35);
         border-radius: 20px;
         backdrop-filter: blur(24px);
-        gap: 0.6rem;
         z-index: 40;
-        justify-content: center;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        gap: 0.5rem 0.65rem;
+        align-items: center;
+        justify-items: stretch;
     }
 
     .floating-btn {
-        flex: 1 1 44%;
-        max-width: 180px;
+        width: 100%;
         border-radius: 10px;
         letter-spacing: 0.08em;
         font-size: 0.75rem;
-        padding: 0.65rem 0.8rem;
+        padding: 0.65rem 0.75rem;
     }
 
     .chat-btn {
-        position: static;
         width: 52px;
         height: 52px;
-        margin-left: auto;
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin: 0 0 0.35rem;
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
     }
 }
@@ -575,17 +577,18 @@ body {
     }
 
     .floating-cta {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.65rem 0.75rem;
+        grid-template-columns: repeat(2, minmax(110px, 1fr));
+        gap: 0.45rem 0.55rem;
+        padding: 0.55rem 0.6rem;
     }
 
     .floating-btn {
-        flex: 1 1 46%;
-        max-width: 150px;
-        text-align: center;
+        font-size: 0.72rem;
+        padding: 0.55rem 0.65rem;
+    }
+
+    .chat-btn {
+        margin-bottom: 0.25rem;
     }
 
     .chat-btn {
