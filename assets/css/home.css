@@ -2,7 +2,8 @@
    Homepage - Immersive Hero Slider
    =================================== */
 
-body {
+/* Homepage specific body styling */
+body.landing-page {
     background-color: #1a0b02;
     color: var(--primary-white);
     overflow: hidden;
