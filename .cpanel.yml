@@ -1,7 +1,8 @@
 ---
-# Update DEPLOYPATH to the absolute path of your public_html directory on cPanel
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/<cpanel-user>/public_html/
-    - /bin/mkdir -p "$DEPLOYPATH"
-    - /bin/rsync -a --delete ./ "$DEPLOYPATH"
+    - export DEPLOYPATH="${HOME}/public_html/"
+    - /bin/echo "Deploying application to ${DEPLOYPATH}"
+    - /bin/mkdir -p "${DEPLOYPATH}"
+    - /bin/rsync -a --delete --exclude=".git/" --exclude=".cpanel/" --exclude=".cpanel.yml" ./ "${DEPLOYPATH}"
+    - /bin/echo "Deployment finished successfully."
