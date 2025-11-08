@@ -1,8 +1,7 @@
----
 deployment:
   tasks:
     - export DEPLOYPATH="${HOME}/public_html/"
-    - /bin/echo "Deploying application to ${DEPLOYPATH}"
+    - /bin/echo "Deploying to ${DEPLOYPATH}"
     - /bin/mkdir -p "${DEPLOYPATH}"
-    - /bin/rsync -a --delete --exclude=".git/" --exclude=".cpanel/" --exclude=".cpanel.yml" ./ "${DEPLOYPATH}"
-    - /bin/echo "Deployment finished successfully."
+    - /bin/cp -R * "${DEPLOYPATH}"
+    - /bin/echo "Deployment completed successfully."
