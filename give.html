@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Winners Online Giving Platform - Faith Tabernacle official giving channels.">
+    <title>Give Online | Living Faith Church Worldwide</title>
+
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+
+    <style>
+        :root {
+            --give-red: #d62828;
+            --give-dark: #0b090a;
+        }
+
+        body {
+            background: #0c0c0c;
+            color: #fff;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+        }
+
+        .landing-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            padding: 15px 0;
+        }
+
+        .landing-header .container-fluid {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 15px;
+        }
+
+        .landing-header .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0;
+        }
+
+        .landing-header .brand a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .landing-header #logo-holder img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .landing-header #menu-holder {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.45rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .landing-header #menu-holder li a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .landing-header #menu-holder a:hover,
+        .landing-header #menu-holder a.active {
+            color: var(--give-red);
+        }
+
+        .mobile-header {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            display: none;
+            padding: 0 20px;
+        }
+
+        .mobile-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mobile-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-brand img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .mobile-brand-text {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #fff;
+            letter-spacing: 0.1em;
+        }
+
+        .mobile-menu-button {
+            background: rgba(255, 255, 255, 0.95);
+            color: #980000;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 15px;
+            width: 210px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 12px;
+            padding: 0.3rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-nav.show {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(214, 40, 40, 0.1);
+        }
+
+        .give-main {
+            padding: 140px 0 90px;
+        }
+
+        .give-shell {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .give-panel {
+            display: grid;
+            grid-template-columns: minmax(320px, 480px) minmax(320px, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .give-options {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(10, 10, 10, 0.95)), url('assets/images/faithtabernacle/preshilohfr2.png') center/cover;
+            border-radius: 32px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .give-options::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8));
+        }
+
+        .give-options > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .give-subtitle {
+            letter-spacing: 0.4em;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #f6d365;
+            margin-bottom: 0.5rem;
+        }
+
+        .give-title {
+            font-size: clamp(2rem, 3vw, 2.7rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .options-block {
+            margin-bottom: 2rem;
+        }
+
+        .options-label {
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.7rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .option-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .option-button {
+            flex: 1 1 calc(50% - 0.75rem);
+            min-width: 140px;
+            padding: 0.85rem 1rem;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .option-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .support-note {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .give-form-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2.5rem;
+            color: #0f172a;
+            box-shadow: 0 35px 60px rgba(15, 23, 42, 0.15);
+        }
+
+        .channel-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .channel-tab {
+            border: 1px solid rgba(15, 23, 42, 0.2);
+            border-radius: 999px;
+            padding: 0.5rem 1rem;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .channel-tab.active {
+            border-color: var(--give-red);
+            color: var(--give-red);
+        }
+
+        .channel-tab small {
+            font-size: 0.65rem;
+            text-transform: none;
+            display: block;
+            color: #475467;
+        }
+
+        .give-note {
+            font-size: 0.85rem;
+            color: #d03550;
+            margin-bottom: 1.5rem;
+        }
+
+        .give-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .give-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .give-field label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #475467;
+        }
+
+        .give-field input,
+        .give-field select,
+        .give-field textarea {
+            border-radius: 12px;
+            border: 1px solid rgba(15, 23, 42, 0.2);
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            color: #0f172a;
+            background: #fff;
+        }
+
+        .give-field select option {
+            color: #0f172a;
+        }
+
+        .give-field textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .give-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .give-submit {
+            grid-column: 1 / -1;
+            background: var(--give-red);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .base-area {
+            margin-top: 4rem;
+            background: #111;
+        }
+
+        @media (max-width: 992px) {
+            .landing-header {
+                display: none;
+            }
+
+            .mobile-header {
+                display: block;
+            }
+
+            .give-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .give-options,
+            .give-form-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="landing-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 col-xs-4 brand">
+                    <a href="index.html">
+                        <span id="logo-holder"><img src="assets/images/logo-lfc.svg" alt="Living Faith Church Logo"></span>
+                        <span id="title-holder">Living Faith<br>Church Worldwide<br>International</span>
+                    </a>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <ul class="menu" id="menu-holder">
+                        <li><a class="active" href="give.html">Give Online</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="family.html">Christian Family</a></li>
+                        <li><a href="wofbi.html">Wofbi</a></li>
+                        <li><a href="media.html">media center</a></li>
+                        <li><a href="mandate.html">The mandate</a></li>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="index.html">HOME</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <header class="mobile-header">
+        <div class="mobile-header-top">
+            <div class="mobile-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <img src="assets/images/logo-lfc.svg" alt="Living Faith Church Logo">
+                    <div class="mobile-brand-text">
+                        <span>Living Faith</span>
+                        <span>Church Worldwide</span>
+                        <span>International</span>
+                    </div>
+                </a>
+            </div>
+            <button class="mobile-menu-button" type="button" onclick="toggleMobileMenu()">Menu</button>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="mandate.html">the mandate</a></li>
+                <li><a href="media.html">media center</a></li>
+                <li><a href="wofbi.html">Wofbi</a></li>
+                <li><a href="family.html">Christian Family</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a class="active" href="give.html">Give Online</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="give-main">
+        <div class="give-shell">
+            <section class="give-panel">
+                <div class="give-options">
+                    <p class="give-subtitle">Winners Online Giving Platform</p>
+                    <h1 class="give-title">Giving Options</h1>
+
+                    <div class="options-block">
+                        <p class="options-label">Local Options</p>
+                        <div class="option-buttons">
+                            <a class="option-button" href="#">Card Payment</a>
+                            <a class="option-button" href="#">USSD</a>
+                            <a class="option-button" href="#">Bank Transfer</a>
+                        </div>
+                    </div>
+
+                    <div class="options-block">
+                        <p class="options-label">International Options</p>
+                        <div class="option-buttons">
+                            <a class="option-button" href="#">Churchpad</a>
+                            <a class="option-button" href="#">Bank Transfer</a>
+                        </div>
+                    </div>
+
+                    <div class="options-block">
+                        <p class="options-label">Support and Information</p>
+                        <div class="option-buttons">
+                            <a class="option-button" href="#">Support</a>
+                            <a class="option-button" href="#">Get Report</a>
+                            <a class="option-button" href="#">Updates</a>
+                        </div>
+                    </div>
+
+                    <p class="support-note">
+                        <i class="ri-chat-3-line" aria-hidden="true"></i>
+                        Prefer to speak with someone? Contact our donor support team anytime.
+                    </p>
+                </div>
+
+                <div class="give-form-card">
+                    <div class="channel-tabs">
+                        <div class="channel-tab active">Payaza <small>[ NGN, USD, GBP ]</small></div>
+                        <div class="channel-tab">Paystack <small>[ NGN, USD ]</small></div>
+                        <div class="channel-tab">GT Bank <small>[ NGN ]</small></div>
+                        <div class="channel-tab">SeerBit <small>[ NGN ]</small></div>
+                    </div>
+                    <p class="give-note">Please note, any of the listed channels can accept your card.</p>
+                    <form class="give-form" action="#" method="post">
+                        <div class="give-field">
+                            <label for="currency">Currency</label>
+                            <select id="currency" required>
+                                <option value="" disabled selected>Currency</option>
+                                <option>NGN</option>
+                                <option>USD</option>
+                                <option>GBP</option>
+                            </select>
+                        </div>
+                        <div class="give-field">
+                            <label for="amount">Amount</label>
+                            <input id="amount" type="number" placeholder="Amount" required>
+                        </div>
+                        <div class="give-field full">
+                            <label for="offering">Offering Type</label>
+                            <select id="offering" required>
+                                <option value="" disabled selected>Select Offering Type</option>
+                                <option>Shiloh Sacrifice</option>
+                                <option>Tithes</option>
+                                <option>Thanksgiving</option>
+                                <option>Project Offering</option>
+                            </select>
+                        </div>
+                        <div class="give-field">
+                            <label for="firstname">Firstname</label>
+                            <input id="firstname" type="text" placeholder="Firstname" required>
+                        </div>
+                        <div class="give-field">
+                            <label for="lastname">Lastname</label>
+                            <input id="lastname" type="text" placeholder="Lastname" required>
+                        </div>
+                        <div class="give-field">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" placeholder="Email" required>
+                        </div>
+                        <div class="give-field">
+                            <label for="phone">Phone</label>
+                            <input id="phone" type="tel" placeholder="+234" required>
+                        </div>
+                        <div class="give-field full">
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" placeholder="Add a note (optional)"></textarea>
+                        </div>
+                        <button class="give-submit" type="submit">Give Now</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div class="base-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 text-center">
+                        Copyright c <span id="giveYear"></span> - LIVING FAITH CHURCH WORLDWIDE INTERNATIONAL
+                        <br><br>
+                        <a href="https://www.facebook.com/WinnersWLD/" target="_blank" class="social-icon">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/WinnersWLD" target="_blank" class="social-icon">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@lfcww" target="_blank" class="social-icon">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/davidoyedepomin/" target="_blank" class="social-icon">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-nav');
+            if (menu) {
+                menu.classList.toggle('show');
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileHeader = document.querySelector('.mobile-header');
+            const menu = document.getElementById('mobile-nav');
+            if (mobileHeader && menu && !mobileHeader.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        const mobileNav = document.getElementById('mobile-nav');
+        if (mobileNav) {
+            mobileNav.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+
+        document.getElementById('giveYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

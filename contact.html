@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reach the Living Faith Church Worldwide contact centre for prayers, testimonies and inquiries.">
+    <meta name="keywords" content="Faith Tabernacle Contact, Living Faith Church, Prayer Request, Testimony, Contact Centre">
+    <title>Contact Us | Living Faith Church Worldwide - Faith Tabernacle</title>
+
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+
+    <style>
+        body.contact-page {
+            background: #f5f6fb;
+            color: #1f1f1f;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .landing-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            padding: 15px 0;
+        }
+
+        .landing-header .container-fluid {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 15px;
+        }
+
+        .landing-header .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0;
+        }
+
+        .landing-header .brand {
+            flex-shrink: 0;
+        }
+
+        .landing-header .brand a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .landing-header #logo-holder img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .landing-header #title-holder {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .landing-header #menu-holder {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .landing-header #menu-holder li {
+            margin: 0 8px;
+            white-space: nowrap;
+        }
+
+        .landing-header #menu-holder a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .landing-header #menu-holder a:hover,
+        .landing-header #menu-holder a.active {
+            color: #dc2626;
+        }
+
+        .mobile-header {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            display: none;
+            padding: 0 20px;
+        }
+
+        .mobile-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .mobile-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-brand img {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+        }
+
+        .mobile-brand-text {
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 1.2;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .mobile-brand-text span {
+            display: block;
+        }
+
+        .mobile-menu-button {
+            background: rgba(255, 255, 255, 0.95);
+            color: #980000;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            font-size: 12px;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 15px;
+            width: 200px;
+            max-height: 60vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0;
+            transform: translateY(-8px) scale(0.95);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .mobile-nav li {
+            padding: 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            width: 100%;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 0.7rem 1rem;
+            color: #444444;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.25s ease;
+            text-align: center;
+            background: transparent;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            position: relative;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(152, 0, 0, 0.08);
+            color: #980000;
+            transform: scale(1.02);
+        }
+
+        .mobile-nav li:first-child a {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .mobile-nav li:last-child a {
+            border-bottom: none;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .contact-main {
+            padding: 140px 0 90px;
+        }
+
+        .contact-shell {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .contact-hero {
+            background: linear-gradient(135deg, #1b1c2f, #3d0e0e);
+            border-radius: 32px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 55%);
+            pointer-events: none;
+        }
+
+        .contact-hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-badge {
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #fcd34d;
+        }
+
+        .contact-address {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+        }
+
+        .contact-lede {
+            font-size: 1rem;
+            max-width: 520px;
+            margin-bottom: 1.25rem;
+            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .contact-lede a {
+            color: #f87171;
+        }
+
+        .contact-phone-card {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        .contact-phone-card .label {
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #fef3c7;
+        }
+
+        .contact-phone-card .contact-phone {
+            display: block;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fef08a;
+            margin-top: 0.35rem;
+            text-decoration: none;
+        }
+
+        .contact-phone-card p {
+            margin: 0.4rem 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .contact-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+        }
+
+        .contact-action.primary {
+            background: #fef3c7;
+            color: #b70808;
+            border-color: transparent;
+        }
+
+        .contact-hero__card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 24px;
+            padding: 2rem;
+            color: #1f1f1f;
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.12);
+        }
+
+        .contact-hero__card img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-hero__card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-hero__card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.25rem 0;
+        }
+
+        .contact-hero__card li {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            font-size: 0.95rem;
+        }
+
+        .contact-hero__note {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #475467;
+        }
+
+        .contact-support {
+            margin-top: 3rem;
+        }
+
+        .section-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-weight: 700;
+            font-size: 0.68rem;
+            color: #b70808;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            margin: 0.35rem 0 2rem;
+            color: #0f172a;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .support-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+        }
+
+        .support-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .support-card p {
+            margin-bottom: 1rem;
+            color: #475467;
+            font-size: 0.95rem;
+        }
+
+        .support-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            text-decoration: none;
+            font-weight: 600;
+            color: #b70808;
+        }
+
+        .faq-section {
+            margin-top: 4rem;
+            background: #fff;
+            border-radius: 28px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 18px;
+            padding: 1.25rem;
+            background: radial-gradient(circle at top, rgba(248, 250, 255, 0.9), #fff);
+            min-height: 190px;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.45rem;
+            color: #0f172a;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #475467;
+        }
+
+        .faq-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .faq-footer a {
+            color: #b70808;
+            text-decoration: none;
+        }
+
+        .contact-form-section {
+            margin-top: 4rem;
+            background: #0f172a;
+            border-radius: 32px;
+            padding: 2.5rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-section h2 {
+            color: #ffffff;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .form-field label {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.85rem 1rem;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form select option {
+            background-color: #081020;
+            color: #ffffff;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .contact-submit {
+            grid-column: 1 / -1;
+            justify-self: flex-start;
+            background: linear-gradient(135deg, #fbbf24, #f97316);
+            color: #1b0f02;
+            border: none;
+            border-radius: 999px;
+            padding: 0.95rem 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .contact-links {
+            margin-top: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: #475467;
+            font-weight: 600;
+        }
+
+        .contact-links span {
+            margin: 0 0.6rem;
+        }
+
+        .base-area {
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 992px) {
+            .landing-header {
+                display: none;
+            }
+
+            .mobile-header {
+                display: block;
+            }
+
+            .contact-main {
+                padding-top: 120px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero {
+                padding: 2rem;
+            }
+
+            .faq-section,
+            .contact-form-section {
+                padding: 1.75rem;
+            }
+
+            .contact-links {
+                letter-spacing: 0.1em;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body class="contact-page">
+    <!-- Fixed Header at Top -->
+    <header class="landing-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 col-xs-4 brand">
+                    <a href="index.html">
+                        <span id="logo-holder"><img src="assets/images/logo-lfc.svg" alt="Living Faith Church Logo"></span>
+                        <span id="title-holder">Living Faith<br>Church Worldwide<br>International</span>
+                    </a>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <ul class="menu" id="menu-holder">
+                        <li><a href="give.html">Give Online</a></li>
+                        <li><a class="active" href="contact.html">Contact Us</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="family.html">Christian Family</a></li>
+                        <li><a href="wofbi.html">Wofbi</a></li>
+                        <li><a href="media.html">media center</a></li>
+                        <li><a href="mandate.html">The mandate</a></li>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="index.html">HOME</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header-top">
+            <div class="mobile-brand">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="assets/images/logo-lfc.svg" alt="Living Faith Church Logo">
+                    <div class="mobile-brand-text">
+                        <span>Living Faith</span>
+                        <span>Church Worldwide</span>
+                        <span>International</span>
+                    </div>
+                </a>
+            </div>
+            <button class="mobile-menu-button" type="button" onclick="toggleMobileMenu()">Menu</button>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="mandate.html">the mandate</a></li>
+                <li><a href="media.html">media center</a></li>
+                <li><a href="wofbi.html">Wofbi</a></li>
+                <li><a href="family.html">Christian Family</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a class="active" href="contact.html">Contact Us</a></li>
+                <li><a href="give.html">Give Online</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-main">
+        <div class="contact-shell">
+            <section class="contact-hero" aria-labelledby="contactHeroTitle">
+                <div>
+                    <p class="contact-badge">Follow Us :</p>
+                    <p class="contact-address">Canaanland, Km. 10, Idiroko Road, Ota Ogun State, Nigeria</p>
+                    <h1 id="contactHeroTitle">We're here for you!</h1>
+                    <p class="contact-lede">
+                        If you would like to talk to us, please call us at
+                        <a href="tel:+2347080638000">+2347080638000</a>
+                        or send an email to
+                        <a href="mailto:contactcentre@lfcww.org">contactcentre@lfcww.org</a>.
+                    </p>
+                    <div class="contact-phone-card">
+                        <span class="label">24/7 Contact Centre</span>
+                        <a class="contact-phone" href="tel:+2347080638000">+234 708 063 8000</a>
+                        <p>We are standing by to pray with you, agree over your testimony, and provide guidance.</p>
+                    </div>
+                    <div class="contact-actions" role="navigation" aria-label="Quick actions">
+                        <a class="contact-action" href="index.html"><i class="ri-home-5-line"></i> Home</a>
+                        <a class="contact-action" href="#contact-form"><i class="ri-hands-heart-line"></i> Prayer Request</a>
+                        <a class="contact-action" href="#testimony"><i class="ri-discuss-line"></i> Testimony</a>
+                        <a class="contact-action primary" href="#contact-form"><i class="ri-customer-service-2-line"></i> Contact Us</a>
+                    </div>
+                </div>
+                <div class="contact-hero__card" aria-label="Living Faith Church contact profile">
+                    <img src="assets/images/logo-lfc.svg" alt="Living Faith Church Worldwide logo">
+                    <h2>Living Faith Church Worldwide</h2>
+                    <p class="text-muted mb-2">Faith Tabernacle Contact Centre</p>
+                    <ul>
+                        <li><i class="ri-phone-line" aria-hidden="true"></i> +234 708 063 8000</li>
+                        <li><i class="ri-mail-line" aria-hidden="true"></i> contactcentre@lfcww.org</li>
+                        <li><i class="ri-map-pin-2-line" aria-hidden="true"></i> Canaanland, Km. 10, Idiroko Road, Ota Ogun State, Nigeria</li>
+                    </ul>
+                    <p class="contact-hero__note">Connect with us for faith-building resources, pastoral care, testimonies and questions about Faith Tabernacle.</p>
+                </div>
+            </section>
+
+            <section class="contact-support" aria-label="Support options">
+                <p class="section-eyebrow">Ways we can serve you</p>
+                <h2 class="section-heading">Share a prayer need, testimony, or question</h2>
+                <div class="support-grid">
+                    <article class="support-card" id="prayer-request">
+                        <h3>Prayer Request</h3>
+                        <p>Send your prayer concerns and a member of our contact centre will connect with you in agreement of faith.</p>
+                        <a href="#contact-form">Send a request <i class="ri-arrow-right-line"></i></a>
+                    </article>
+                    <article class="support-card" id="testimony">
+                        <h3>Testimony</h3>
+                        <p>We love to rejoice with you. Share what God has done and let it bless someone else.</p>
+                        <a href="#contact-form">Share testimony <i class="ri-arrow-right-line"></i></a>
+                    </article>
+                    <article class="support-card">
+                        <h3>Contact Us</h3>
+                        <p>Need directions, pastoral care, or programme details? Reach our team via phone or the form below.</p>
+                        <a href="#contact-form">Talk to us <i class="ri-arrow-right-line"></i></a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="faq-section" aria-labelledby="faqHeading">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+                    <div>
+                        <p class="section-eyebrow mb-2">Frequently Asked Questions</p>
+                        <h2 class="section-heading" id="faqHeading">Quick answers for common requests</h2>
+                    </div>
+                </div>
+                <div class="faq-grid">
+                    <article class="faq-item">
+                        <h4>How can I give?</h4>
+                        <p>You can give via the link below: <a href="https://give.faithtabernacle.org.ng" target="_blank" rel="noopener">https://give.faithtabernacle.org.ng</a></p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>How can I give to Bishop David Oyedepo?</h4>
+                        <p>Use the giving portal and choose the designated giving channel, or contact the centre for secure instructions.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>How can I stay updated with recent news and updates?</h4>
+                        <p>Follow our verified social media pages and subscribe to the newsletter below for real-time updates.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>How can I book an appointment to see Bishop David Oyedepo?</h4>
+                        <p>Kindly reach the contact centre with your request so we can guide you through the official appointment process.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>I want to attend WOFBI?</h4>
+                        <p>Visit the WOFBI page for schedules or leave your interest here—we will send you upcoming class information.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>I need prayers</h4>
+                        <p>Use the form below or call +2347080638000 so that a minister can pray with you immediately.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>I have challenges with giving online</h4>
+                        <p>Please share the details (device, error message, time) so our digital support team can assist quickly.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>How do I join a WSF?</h4>
+                        <p>Let us know your location and we will connect you to the nearest Winners Satellite Fellowship centre.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>I want to attend Believer's Foundation Class</h4>
+                        <p>We will help you locate the next class at Faith Tabernacle or at any of our global locations.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h4>More Questions?</h4>
+                        <p>Contact us anytime—call the hotline, chat with us on social media, or complete the form below.</p>
+                    </article>
+                </div>
+                <p class="faq-footer">Need something specific? <a href="#contact-form">Contact us</a></p>
+            </section>
+
+            <section class="contact-form-section" id="contact-form" aria-labelledby="contactFormHeading">
+                <div class="mb-4">
+                    <p class="section-eyebrow text-white">Send us a message</p>
+                    <h2 id="contactFormHeading">Let us know how we can pray, help, or celebrate with you</h2>
+                </div>
+                <form class="contact-form" action="#" method="post" novalidate>
+                    <div class="form-field">
+                        <label for="title">Title</label>
+                        <select id="title" name="title" required>
+                            <option value="" disabled selected>Select title</option>
+                            <option>Brother</option>
+                            <option>Sister</option>
+                            <option>Mr</option>
+                            <option>Mrs</option>
+                            <option>Pastor</option>
+                            <option>Dr</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="" disabled selected>Select gender</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="prefer_not">Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">Phone</label>
+                        <input id="phone" name="phone" type="tel" placeholder="+234 708 063 8000" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="country">Country</label>
+                        <select id="country" name="country" required>
+                            <option value="Nigeria" selected>Nigeria</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="state">State / Province</label>
+                        <input id="state" name="state" type="text" placeholder="State/Province" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="city">Town / City</label>
+                        <input id="city" name="city" type="text" placeholder="Town or City" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="subject">Subject</label>
+                        <input id="subject" name="subject" type="text" placeholder="Subject of your message" required>
+                    </div>
+                    <div class="form-field full">
+                        <label for="message">Write your message here...</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button class="contact-submit" type="submit">Submit Request</button>
+                </form>
+            </section>
+
+            <div class="contact-links">
+                <span>About</span>
+                <span>Locator</span>
+                <span>Blog</span>
+                <span>Faith Tabernacle</span>
+            </div>
+        </div>
+
+        <div class="base-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 text-center">
+                        Copyright c <span id="myID"></span> - LIVING FAITH CHURCH WORLDWIDE INTERNATIONAL
+                        <br><br>
+                        <a href="https://www.facebook.com/WinnersWLD/" target="_blank" class="social-icon">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/WinnersWLD" target="_blank" class="social-icon">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@lfcww" target="_blank" class="social-icon">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/davidoyedepomin/" target="_blank" class="social-icon">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-nav');
+            if (menu) {
+                menu.classList.toggle('show');
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileHeader = document.querySelector('.mobile-header');
+            const menu = document.getElementById('mobile-nav');
+            if (mobileHeader && menu && !mobileHeader.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        const mobileNav = document.getElementById('mobile-nav');
+        if (mobileNav) {
+            mobileNav.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+
+        (function() {
+            const yearHolder = document.getElementById('myID');
+            if (yearHolder) {
+                yearHolder.textContent = new Date().getFullYear();
+            }
+        })();
+    </script>
+</body>
+</html>
